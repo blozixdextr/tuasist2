@@ -1,0 +1,1 @@
+<script type="text/javascript" src="/assets/app/js/app.js"></script>

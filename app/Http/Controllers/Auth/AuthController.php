@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -62,4 +63,10 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    protected function getCredentials(Request $request)
+    {
+        return array_merge(['is_active' => 1], $request->only($this->loginUsername(), 'password'));
+    }
+
 }
