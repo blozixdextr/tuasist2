@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>@yield('title', 'tuasist')</title>
+        <title>@yield('title', trans('general.site.title')) - {{ trans('general.site.name') }}</title>
         @include('includes.head.meta')
         @include('includes.head.styles')
         @include('includes.head.scripts')
@@ -11,6 +11,7 @@
     </head>
     <body>
         @include('includes.header')
+        @include('includes.locale')
         @yield('content')
         @include('includes.footer')
         @include('includes.bodyend')

@@ -12,10 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 });
 
-Route::get('welcome/{locale}', 'IndexController@locale');
+Route::get('locale/{locale}', 'IndexController@locale');
 
 
 // Authentication routes...

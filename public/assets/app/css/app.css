@@ -1,0 +1,8 @@
+#localeSwitcher {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#localeSwitcher a.active {
+    font-weight: bold;
+}

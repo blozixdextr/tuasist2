@@ -11,6 +11,7 @@
     </head>
     <body>
         @include('includes.header')
+        @include('includes.locale')
         @yield('content')
         @include('includes.footer')
         @include('includes.bodyend')
