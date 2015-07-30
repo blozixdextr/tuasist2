@@ -10,11 +10,14 @@
         @yield('head-js')
     </head>
     <body>
-        @include('includes.header')
-        @include('includes.locale')
-        @yield('content')
-        @include('includes.footer')
-        @include('includes.bodyend')
-        @yield('body-js')
+        <div class="container">
+            @include('includes.header')
+            @include('includes.locale')
+            @include('includes.alerts')
+            @yield('content')
+            @include('includes.footer')
+            @include('includes.bodyend')
+            @yield('body-js')
+        </div>
     </body>
 </html>

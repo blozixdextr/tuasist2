@@ -6,3 +6,18 @@
 #localeSwitcher a.active {
     font-weight: bold;
 }
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.form-group.fa-iconed i.fa {
+    float: left;
+    margin: 0 -25px 0 5px;
+    line-height: 34px;
+    color: #ccc;
+}
+
+.form-group.fa-iconed .form-control {
+    padding-left: 25px;
+}

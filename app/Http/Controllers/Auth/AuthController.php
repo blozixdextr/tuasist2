@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\Location;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -67,6 +68,30 @@ class AuthController extends Controller
     protected function getCredentials(Request $request)
     {
         return array_merge(['is_active' => 1], $request->only($this->loginUsername(), 'password'));
+    }
+
+    public function getRegister()
+    {
+        $states = Location::states()->get();
+        $regions = $states->first()->children;
+        $cities = $regions->first()->children;
+        $citiesArr = ['' => trans('registed.city.placeholder')];
+        $regionsArr = [];
+        $statesArr = [];
+        foreach ($cities as $s) {
+            $citiesArr[$s->id] = $s->title;
+        }
+        foreach ($regions as $s) {
+            $regionsArr[$s->id] = $s->title;
+        }
+        foreach ($states as $s) {
+            $statesArr[$s->id] = $s->title;
+        }
+        $cities = $citiesArr;
+        $states = $statesArr;
+        $regions = $regionsArr;
+
+        return view('auth.register', compact('states', 'regions', 'cities'));
     }
 
 }

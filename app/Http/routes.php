@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
+
+Route::get('/test', 'TestController@test');
+
 Route::get('locale/{locale}', 'IndexController@locale');
 
 
