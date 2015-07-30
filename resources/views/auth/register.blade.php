@@ -16,7 +16,8 @@
 
 @section('body-js')
     <script>
-        $(function(){
+        $(function() {
+
             var telInput = $("#mobile"),
                 errorMsg = $("#error-msg"),
                 validMsg = $("#valid-msg");
@@ -57,14 +58,19 @@
             });
 
             function switchUserType() {
-                console.log('switchUserType');
                 if ($('#userTypePersonal').is(':checked')) {
                     $('#personalInputsWrap').show();
                     $('#companyInputsWrap').hide();
+                    $('#first_name').attr('required', 'required');
+                    $('#last_name').attr('required', 'required');
+                    $('#company_name').removeAttr('required');
                 } else {
                     if ($('#userTypeCompany').is(':checked')) {
                         $('#personalInputsWrap').hide();
                         $('#companyInputsWrap').show();
+                        $('#first_name').removeAttr('required');
+                        $('#last_name').removeAttr('required');
+                        $('#company_name').attr('required', 'required');
                     }
                 }
             }
@@ -82,7 +88,9 @@
 @section('content')
     <div id="registerFormWrap" style="max-width: 600px; margin: 0 auto">
     <h1>{!! trans('register.title') !!}</h1>
+    @include('includes.errors')
     {!! Form::open(['url' => '/auth/register', 'method' => 'post', 'class' => 'form-horizontal', 'id' => 'registerForm']) !!}
+        {!! Form::hidden('type', 'tasker') !!}
     <div class="form-group{!! ($errors && $errors->has('first_name')) ? ' has-error' : '' !!}">
         {!! Form::label('user_type', trans('register.user_type.label'), ['class' => 'col-sm-3 control-label']) !!}
         <div class="col-sm-9">
@@ -189,6 +197,7 @@
                 <label for="accept_terms">
                     {!! Form::checkbox('accept_terms', 1, old('accept_terms', false)) !!}
                     {!! trans('register.agree.label', ['url' => '/page/terms-and-conditions']) !!}
+                    {!! Form::errorMessage('accept_terms') !!}
                 </label>
             </div>
         </div>
