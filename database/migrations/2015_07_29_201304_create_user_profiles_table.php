@@ -32,6 +32,7 @@ class CreateUserProfilesTable extends Migration
             $table->string('facebook', 255)->nullable()->index('facebook');
             $table->string('twitter', 255)->nullable()->index('twitter');
             $table->string('google', 255)->nullable()->index('google');
+            $table->string('paypal', 255)->nullable()->index('paypal');
             $table->timestamps();
         });
     }

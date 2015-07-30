@@ -1,6 +1,86 @@
 @extends('layouts.index')
 
+@section('head-style')
+    <link rel="stylesheet" href="/assets/libs/tel-input/css/intlTelInput.css">
+    <style>
+        #error-msg, #valid-msg {
+            display: none;
+            padding: 5px;
+        }
+    </style>
+@endsection
+
+@section('head-js')
+    <script src="/assets/libs/tel-input/js/intlTelInput.min.js"></script>
+@endsection
+
+@section('body-js')
+    <script>
+        $(function(){
+            var telInput = $("#mobile"),
+                errorMsg = $("#error-msg"),
+                validMsg = $("#valid-msg");
+            telInput.intlTelInput({
+                utilsScript: "/assets/libs/libphonenumber/utils.js",
+                preferredCountries: ['es', 'gb', 'ru']
+            });
+            telInput.blur(function() {
+                if ($.trim(telInput.val())) {
+                    if (telInput.intlTelInput("isValidNumber")) {
+                        validMsg.show();
+                        errorMsg.hide();
+                    } else {
+                        telInput.addClass("error");
+                        errorMsg.show();
+                        validMsg.hide();
+                    }
+                }
+            });
+            telInput.keydown(function() {
+                telInput.removeClass("error");
+                errorMsg.hide();
+                validMsg.hide();
+            });
+
+            $('#registerForm').submit(function(e){
+                if (telInput.intlTelInput("isValidNumber")) {
+                    var number = telInput.intlTelInput("getNumber");
+                    telInput.intlTelInput("destroy");
+                    telInput.val(number);
+                    errorMsg.hide();
+                    validMsg.hide();
+                    return true;
+                } else {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            function switchUserType() {
+                console.log('switchUserType');
+                if ($('#userTypePersonal').is(':checked')) {
+                    $('#personalInputsWrap').show();
+                    $('#companyInputsWrap').hide();
+                } else {
+                    if ($('#userTypeCompany').is(':checked')) {
+                        $('#personalInputsWrap').hide();
+                        $('#companyInputsWrap').show();
+                    }
+                }
+            }
+
+            switchUserType();
+
+            $('#userTypePersonal, #userTypeCompany').change(switchUserType);
+
+        });
+    </script>
+@endsection
+
+
+
 @section('content')
+    <div id="registerFormWrap" style="max-width: 600px; margin: 0 auto">
     <h1>{!! trans('register.title') !!}</h1>
     {!! Form::open(['url' => '/auth/register', 'method' => 'post', 'class' => 'form-horizontal', 'id' => 'registerForm']) !!}
     <div class="form-group{!! ($errors && $errors->has('first_name')) ? ' has-error' : '' !!}">
@@ -18,35 +98,39 @@
             </div>
         </div>
     </div>
-    <div class="form-group fa-iconed{!! ($errors && $errors->has('first_name')) ? ' has-error' : '' !!}">
-        {!! Form::label('first_name', trans('register.first_name.label'), ['class' => 'col-sm-3 control-label']) !!}
-        <div class="col-sm-9">
-            <i class="fa fa-user fa-fw"></i>
-            {!! Form::text('first_name', old('first_name'), ['class' => 'form-control', 'placeholder' => trans('register.first_name.label'), 'required' => 'required']) !!}
-            {!! Form::errorMessage('first_name') !!}
+    <div id="personalInputsWrap">
+        <div class="form-group fa-iconed{!! ($errors && $errors->has('first_name')) ? ' has-error' : '' !!}">
+            {!! Form::label('first_name', trans('register.first_name.label'), ['class' => 'col-sm-3 control-label']) !!}
+            <div class="col-sm-9">
+                <i class="fa fa-user fa-fw"></i>
+                {!! Form::text('first_name', old('first_name'), ['class' => 'form-control', 'placeholder' => trans('register.first_name.placeholder'), 'required' => 'required']) !!}
+                {!! Form::errorMessage('first_name') !!}
+            </div>
+        </div>
+        <div class="form-group fa-iconed{!! ($errors && $errors->has('last_name')) ? ' has-error' : '' !!}">
+            {!! Form::label('last_name', trans('register.last_name.label'), ['class' => 'col-sm-3 control-label']) !!}
+            <div class="col-sm-9">
+                <i class="fa fa-user fa-fw"></i>
+                {!! Form::text('last_name', old('last_name'), ['class' => 'form-control', 'placeholder' => trans('register.last_name.placeholder'), 'required' => 'required']) !!}
+                {!! Form::errorMessage('last_name') !!}
+            </div>
         </div>
     </div>
-    <div class="form-group fa-iconed{!! ($errors && $errors->has('last_name')) ? ' has-error' : '' !!}">
-        {!! Form::label('last_name', trans('register.last_name.label'), ['class' => 'col-sm-3 control-label']) !!}
-        <div class="col-sm-9">
-            <i class="fa fa-user fa-fw"></i>
-            {!! Form::text('last_name', old('last_name'), ['class' => 'form-control', 'placeholder' => trans('register.last_name.label'), 'required' => 'required']) !!}
-            {!! Form::errorMessage('last_name') !!}
-        </div>
-    </div>
-    <div class="form-group fa-iconed{!! ($errors && $errors->has('company_name')) ? ' has-error' : '' !!}">
-        {!! Form::label('last_name', trans('register.company_name.label'), ['class' => 'col-sm-3 control-label']) !!}
-        <div class="col-sm-9">
-            <i class="fa fa-user fa-fw"></i>
-            {!! Form::text('company_name', old('company_name'), ['class' => 'form-control', 'placeholder' => trans('register.company_name.label'), 'required' => 'required']) !!}
-            {!! Form::errorMessage('company_name') !!}
+    <div id="companyInputsWrap" style="display:none;">
+        <div class="form-group fa-iconed{!! ($errors && $errors->has('company_name')) ? ' has-error' : '' !!}">
+            {!! Form::label('company_name', trans('register.company_name.label'), ['class' => 'col-sm-3 control-label']) !!}
+            <div class="col-sm-9">
+                <i class="fa fa-user fa-fw"></i>
+                {!! Form::text('company_name', old('company_name'), ['class' => 'form-control', 'placeholder' => trans('register.company_name.placeholder'), 'required' => 'required']) !!}
+                {!! Form::errorMessage('company_name') !!}
+            </div>
         </div>
     </div>
     <div class="form-group fa-iconed{!! ($errors && $errors->has('email')) ? ' has-error' : '' !!}">
         {!! Form::label('email', trans('register.email.label'), ['class' => 'col-sm-3 control-label']) !!}
         <div class="col-sm-9">
             <i class="fa fa-envelope fa-fw"></i>
-            {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => trans('register.email.label'), 'required' => 'required']) !!}
+            {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => trans('register.email.placeholder'), 'required' => 'required']) !!}
             {!! Form::errorMessage('email') !!}
         </div>
     </div>
@@ -54,7 +138,7 @@
         {!! Form::label('password', trans('register.password.label'), ['class' => 'col-sm-3 control-label']) !!}
         <div class="col-sm-9">
             <i class="fa fa-key fa-fw"></i>
-            {!! Form::input('password', 'password', old('password'), ['class' => 'form-control', 'placeholder' => trans('register.password.label'), 'required' => 'required']) !!}
+            {!! Form::input('password', 'password', old('password'), ['class' => 'form-control', 'placeholder' => trans('register.password.placeholder'), 'required' => 'required']) !!}
             {!! Form::errorMessage('password') !!}
         </div>
     </div>
@@ -62,7 +146,7 @@
         {!! Form::label('password_confirmation', trans('register.password_confirmation.label'), ['class' => 'col-sm-3 control-label']) !!}
         <div class="col-sm-9">
             <i class="fa fa-key fa-fw"></i>
-            {!! Form::input('password', 'password_confirmation', old('password_confirmation'), ['class' => 'form-control', 'placeholder' => trans('register.password_confirmation.label'), 'required' => 'required']) !!}
+            {!! Form::input('password', 'password_confirmation', old('password_confirmation'), ['class' => 'form-control', 'placeholder' => trans('register.password_confirmation.placeholder'), 'required' => 'required']) !!}
             {!! Form::errorMessage('password_confirmation') !!}
         </div>
     </div>
@@ -90,11 +174,12 @@
             {!! Form::errorMessage('city') !!}
         </div>
     </div>
-    <div class="form-group fa-iconed{!! ($errors && $errors->has('mobile')) ? ' has-error' : '' !!}">
+    <div class="form-group {!! ($errors && $errors->has('mobile')) ? ' has-error' : '' !!}">
         {!! Form::label('mobile', trans('register.mobile.label'), ['class' => 'col-sm-3 control-label']) !!}
         <div class="col-sm-9">
-            <i class="fa fa-map-mobile fa-fw"></i>
-            {!! Form::input('tel', 'mobile', old('mobile'), ['class' => 'form-control', 'placeholder' => trans('register.mobile.label'), 'required' => 'required']) !!}
+            {!! Form::input('tel', 'mobile', old('mobile'), ['style' => 'padding-left: 45px', 'class' => 'form-control', 'required' => 'required', 'id' => 'mobile']) !!}
+            <span id="valid-msg" class="bg-success text-success"><i class="fa fa-check"></i> {!! trans('register.mobile.valid') !!}</span>
+            <span id="error-msg" class="bg-danger text-danger"><i class="fa fa-exclamation-circle"></i> {!! trans('register.mobile.invalid') !!}</span>
             {!! Form::errorMessage('mobile') !!}
         </div>
     </div>
@@ -102,8 +187,8 @@
         <div class="col-sm-offset-3 col-sm-9">
             <div class="checkbox">
                 <label for="accept_terms">
-                    {!! Form::checkbox('accept_terms', 1, old('accept_terms', 1)) !!}
-                    {!! trans('register.agree', ['url' => '/terms-and-conditions']) !!}
+                    {!! Form::checkbox('accept_terms', 1, old('accept_terms', false)) !!}
+                    {!! trans('register.agree.label', ['url' => '/page/terms-and-conditions']) !!}
                 </label>
             </div>
         </div>
@@ -115,5 +200,6 @@
     </div>
 
     {!! Form::close() !!}
+    </div>
 
 @endsection

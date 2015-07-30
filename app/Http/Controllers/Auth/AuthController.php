@@ -75,7 +75,7 @@ class AuthController extends Controller
         $states = Location::states()->get();
         $regions = $states->first()->children;
         $cities = $regions->first()->children;
-        $citiesArr = ['' => trans('registed.city.placeholder')];
+        $citiesArr = ['' => trans('register.city.placeholder')];
         $regionsArr = [];
         $statesArr = [];
         foreach ($cities as $s) {

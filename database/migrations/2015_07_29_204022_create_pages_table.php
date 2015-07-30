@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('subtitle', 255)->nullable();
             $table->text('body')->nullable();
             $table->text('seo')->nullable();
+            $table->string('locale', 2)->nullable()->index('locale');
             $table->timestamps();
         });
     }
