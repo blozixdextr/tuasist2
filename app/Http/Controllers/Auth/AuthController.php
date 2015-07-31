@@ -12,7 +12,12 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use App;
-use DB;
+use Auth;
+use Socialite;
+use Session;
+use Input;
+use Redirect;
+use App\Models\Mappers\UserMapper;
 
 class AuthController extends Controller
 {
@@ -99,7 +104,7 @@ class AuthController extends Controller
             'last_name' => $data['last_name'],
             'location' => $data['city'],
             'phone' => $data['mobile'],
-            'last_activity' => \Carbon\Carbon::now(),
+            'last_activity' => Carbon::now(),
         ]);
         $profile->user_id = $user->id;
         $profile->type = $data['user_type'];
@@ -137,6 +142,74 @@ class AuthController extends Controller
         $regions = $regionsArr;
 
         return view('auth.register', compact('states', 'regions', 'cities'));
+    }
+
+    public function facebook()
+    {
+        $userType = Input::get('user_type');
+        $type = Input::get('type');
+        if (!in_array($userType, ['personal', 'company']) || !in_array($type, ['client', 'tasker'])) {
+            return Redirect::back()->withError(['facebook' => trans('register.facebook.fail')]);
+        }
+        Session::set('register.type', $type);
+        Session::set('register.user_type', $userType);
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function facebookCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        $provider = 'facebook';
+        $oauthId = $user->getId();
+        $localUser = User::oauth($oauthId, $provider)->first();
+        if ($localUser) {
+            Auth::loginUsingId($localUser->id);
+            return redirect($this->redirectPath);
+        } else {
+            //dd($user);
+            $nickname = $user->getNickname();
+            //$name = $user->getName();
+            $email = $user->getEmail();
+            $avatar = $user->getAvatar();
+            $firstName = $user->offsetGet('last_name');
+            $lastName = $user->offsetGet('first_name');
+            $data = [
+                'first_name' => $firstName,
+                'last_name' => $lastName,
+                'email' => $email,
+                'password' => '',
+                'city' => null,
+                'mobile' => null,
+                'user_type' => Session::get('register.user_type'),
+                'type' => Session::get('register.type')
+            ];
+            $localUser = $this->create($data);
+            $localUser->provider = $provider;
+            $localUser->oauth_id = $oauthId;
+            if ($nickname == '') {
+                $nickname = $oauthId;
+            }
+            $profile = $localUser->profile;
+            $profile->facebook = 'http://facebook.com/'.$nickname;
+            $localUser->save();
+            $avatarPath = UserMapper::generateAvatarPath($localUser);
+            try {
+                if ($avatar) {
+                    file_put_contents($avatarPath, fopen($avatar, 'r'));
+                    $profile->avatar = pathinfo($avatarPath, PATHINFO_BASENAME);
+                }
+            } catch (\Exception $e) {
+                $profile->avatar = null;
+            }
+            $profile->save();
+            Auth::loginUsingId($localUser->id);
+            if ($user) {
+                return redirect($this->redirectPath);
+            } else {
+                return redirect('/auth/login')->withErrors(['facebook' => trans('register.facebook.fail')]);
+            }
+        }
     }
 
 }

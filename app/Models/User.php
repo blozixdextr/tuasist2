@@ -33,6 +33,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $hidden = ['password', 'remember_token'];
 
+    const avatarDir = 'uploads/avatars';
+
+    const photoDir = 'uploads/photos';
+
 
     public function profile()
     {
@@ -67,5 +71,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function locations()
     {
         return $this->belongsToMany(Location::class);
+    }
+
+    public static function scopeOauth($query, $oauthId, $provider)
+    {
+        return $query->where('provider', '=', $provider)->where('oauth_id', '=', $oauthId);
     }
 }

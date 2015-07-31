@@ -53,7 +53,11 @@ return [
     'agree' => [
         'label' => 'I agree with <a href=":url">Terms and conditions</a>',
     ],
-    'submit' => 'Register Now'
+    'submit' => 'Register Now',
+   'facebook' => [
+       'label' => 'Sign Up With Facebook',
+       'fail' => 'Failed Facebook Authentication. Try again later or use other option'
+   ],
 
 
 

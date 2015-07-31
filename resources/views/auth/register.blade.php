@@ -204,7 +204,8 @@
     </div>
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
-            {!! Form::submit(trans('register.submit'), ['class' => 'btn btn-primary btn-lg']) !!}
+            {!! Form::submit(trans('register.submit'), ['class' => 'btn btn-primary btn-lg']) !!} or
+            <a href="/auth/facebook?type=tasker&user_type=personal" class="btn btn-primary btn-lg">{!! trans('register.facebook.label') !!}</a>
         </div>
     </div>
 
