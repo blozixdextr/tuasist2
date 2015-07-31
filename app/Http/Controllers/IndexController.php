@@ -15,7 +15,12 @@ class IndexController extends Controller
 
     public function index()
     {
-        //
+        return view('pages.home');
+    }
+
+    public function register()
+    {
+        return view('pages.register');
     }
 
     public function locale($locale)

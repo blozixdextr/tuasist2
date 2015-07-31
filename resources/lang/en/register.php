@@ -8,6 +8,11 @@ return [
         'personal' => 'I am person',
         'company' => 'I am company',
     ],
+    'type' => [
+        'label' => 'Register as',
+        'tasker' => 'Tasker',
+        'client' => 'Client',
+    ],
     'first_name' => [
         'label' => 'First Name',
         'placeholder' => 'Set your first name'
@@ -54,11 +59,20 @@ return [
         'label' => 'I agree with <a href=":url">Terms and conditions</a>',
     ],
     'submit' => 'Register Now',
-   'facebook' => [
-       'label' => 'Sign Up With Facebook',
-       'fail' => 'Failed Facebook Authentication. Try again later or use other option'
-   ],
-
+    'facebook' => [
+        'label' => 'Sign Up With Facebook',
+        'fail' => 'Failed Facebook Authentication. Try again later or use other option'
+    ],
+    'tasker' => [
+        'label' => 'Sign Up As Tasker',
+        'title' => 'I am Tasker',
+        'description' => 'I want to take tasks and earn money'
+    ],
+    'client' => [
+        'label' => 'Sign Up As Client',
+        'title' => 'I am Client',
+        'description' => 'I want to set tasks and get help'
+    ],
 
 
 

@@ -78,9 +78,13 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        $name = '';
-        if ($data['user_type'] == 'personal') {
-            $name = $data['first_name'].' '.$data['last_name'];
+        if (!isset($data['name']) || $data['name'] == '') {
+            $name = '';
+            if ($data['user_type'] == 'personal') {
+                $name = $data['first_name'].' '.$data['last_name'];
+            }
+        } else {
+            $name = $data['name'];
         }
         if ($data['user_type'] == 'company') {
             $name = $data['company_name'];
@@ -120,7 +124,7 @@ class AuthController extends Controller
         return array_merge(['is_active' => 1], $request->only($this->loginUsername(), 'password'));
     }
 
-    public function getRegister()
+    public function getRegisterTasker()
     {
         $states = Location::states()->get();
         $regions = $states->first()->children;
@@ -141,25 +145,40 @@ class AuthController extends Controller
         $states = $statesArr;
         $regions = $regionsArr;
 
-        return view('auth.register', compact('states', 'regions', 'cities'));
+        return view('pages.register.tasker', compact('states', 'regions', 'cities'));
+    }
+
+    public function postRegisterTasker(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $data = $request->all();
+        $data['type'] = 'tasker';
+        Auth::login($this->create($data));
+
+        return redirect($this->redirectPath);
     }
 
     public function facebook()
     {
         $userType = Input::get('user_type');
         $type = Input::get('type');
-        if (!in_array($userType, ['personal', 'company']) || !in_array($type, ['client', 'tasker'])) {
-            return Redirect::back()->withError(['facebook' => trans('register.facebook.fail')]);
+        if (in_array($userType, ['personal', 'company']) || in_array($type, ['client', 'tasker'])) {
+            Session::set('register.type', $type);
+            Session::set('register.user_type', $userType);
         }
-        Session::set('register.type', $type);
-        Session::set('register.user_type', $userType);
         return Socialite::driver('facebook')->redirect();
     }
 
     public function facebookCallback()
     {
         $user = Socialite::driver('facebook')->user();
-
         $provider = 'facebook';
         $oauthId = $user->getId();
         $localUser = User::oauth($oauthId, $provider)->first();
@@ -169,20 +188,29 @@ class AuthController extends Controller
         } else {
             //dd($user);
             $nickname = $user->getNickname();
-            //$name = $user->getName();
+            $name = $user->getName();
             $email = $user->getEmail();
             $avatar = $user->getAvatar();
             $firstName = $user->offsetGet('last_name');
             $lastName = $user->offsetGet('first_name');
+            $userType = Session::pull('register.user_type');
+            $type = Session::pull('register.type');
+            if (!$userType) {
+                $userType = null;
+            }
+            if (!$type) {
+                $type = null;
+            }
             $data = [
+                'name' => $name,
                 'first_name' => $firstName,
                 'last_name' => $lastName,
                 'email' => $email,
                 'password' => '',
                 'city' => null,
                 'mobile' => null,
-                'user_type' => Session::get('register.user_type'),
-                'type' => Session::get('register.type')
+                'user_type' => $userType,
+                'type' => $type
             ];
             $localUser = $this->create($data);
             $localUser->provider = $provider;
@@ -207,7 +235,7 @@ class AuthController extends Controller
             if ($user) {
                 return redirect($this->redirectPath);
             } else {
-                return redirect('/auth/login')->withErrors(['facebook' => trans('register.facebook.fail')]);
+                return Redirect::back()->withErrors(['facebook' => trans('register.facebook.fail')]);
             }
         }
     }

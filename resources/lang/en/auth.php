@@ -15,5 +15,15 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'title' => 'Sign In',
+    'submit' => 'Login',
+    'register_now' => 'Register Now!',
+    'no_account' => 'Have no account?',
+    'remember_me' => [
+        'label' => 'Remember Me'
+    ],
+    'facebook' => [
+        'login' => 'Login In with Facebook'
+    ],
 
 ];

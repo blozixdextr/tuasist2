@@ -11,15 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+// home
+Route::get('/', 'IndexController@index');
+Route::get('/home', 'IndexController@index');
 
-
-Route::get('/test', 'TestController@test');
-
+// change language
 Route::get('locale/{locale}', 'IndexController@locale');
 
+// user
+Route::get('profile', 'ProfileController@index');
+Route::get('profile/types', 'ProfileController@getTypes');
+Route::post('profile/types', 'ProfileController@postTypes');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -29,5 +31,14 @@ Route::get('auth/facebook', 'Auth\AuthController@facebook');
 Route::get('auth/facebook/callback', 'Auth\AuthController@facebookCallback');
 
 // Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::get('register', 'IndexController@register');
+Route::get('register/tasker', 'Auth\AuthController@getRegisterTasker');
+//Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('register/tasker', 'Auth\AuthController@postRegisterTasker');
+
+
+
+
+
+
+Route::get('/test', 'TestController@test');

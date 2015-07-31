@@ -33,12 +33,18 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
-                {!! Form::submit(trans('auth.submit'), ['class' => 'btn btn-primary btn-lg']) !!} or
-                <a href="/register" class="btn btn-primary btn-lg">{{ trans('auth.register_now') }}</a>
+                {!! Form::submit(trans('auth.submit'), ['class' => 'btn btn-success btn-lg']) !!}
+                {{ trans('general.or') }} <a href="/auth/facebook" class="btn btn-primary"><i class="fa fa-facebook"></i> {{ trans('auth.facebook.login') }}</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <p>{{ trans('auth.no_account') }} <a href="/register">{{ trans('auth.register_now') }}</a></p>
             </div>
         </div>
 
         {!! Form::close() !!}
+
         </div>
 
 @endsection
