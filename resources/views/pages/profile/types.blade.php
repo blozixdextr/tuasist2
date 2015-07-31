@@ -4,7 +4,7 @@
     <div id="registerFormWrap" style="max-width: 600px; margin: 0 auto">
         <h1>{!! trans('register.title') !!}</h1>
         @include('includes.errors')
-        {!! Form::open(['url' => '/profile/types', 'method' => 'post', 'class' => 'form-horizontal', 'id' => 'registerForm']) !!}
+        {!! Form::open(['url' => '/profile/types', 'method' => 'post', 'class' => 'form-horizontal', 'id' => 'registerTypesForm']) !!}
 
         @if (!$user->type)
             <div class="form-group">

@@ -24,4 +24,8 @@ class Category extends Model
     {
         return $this->belongsTo(Category::class, 'pid');
     }
+
+    public function scopeRoots($query) {
+        return $query->where('type', 'category')->where('pid', 0);
+    }
 }

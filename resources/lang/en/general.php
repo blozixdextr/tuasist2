@@ -6,6 +6,7 @@ return [
     'or' => 'or',
     'and' => 'and',
     'save' => 'save',
+    'accept' => 'accept',
 
     'site' => [
         'name' => 'Tuasist English Global',

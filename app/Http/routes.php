@@ -22,6 +22,8 @@ Route::get('locale/{locale}', 'IndexController@locale');
 Route::get('profile', 'ProfileController@index');
 Route::get('profile/types', 'ProfileController@getTypes');
 Route::post('profile/types', 'ProfileController@postTypes');
+Route::get('profile/fill', 'ProfileController@getFill');
+Route::post('profile/fill', 'ProfileController@postFill');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

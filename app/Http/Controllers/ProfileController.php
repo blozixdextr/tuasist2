@@ -9,6 +9,8 @@ use Auth;
 use Redirect;
 use Session;
 use App\Models\User;
+use App\Models\Location;
+use App\Models\Category;
 
 class ProfileController extends Controller
 {
@@ -55,7 +57,7 @@ class ProfileController extends Controller
 
     public function getFill()
     {
-        if ($this->checkProfileType()) {
+        if (!$this->checkProfileType()) {
             return redirect('/profile');
         }
         if ($this->checkProfileFill()) {
@@ -63,12 +65,19 @@ class ProfileController extends Controller
         }
         $user = $this->user;
         $profile = $this->user->profile;
-        return view('pages.profile.fill', compact('user', 'profile'));
+        $city = $profile->city;
+        $region = $city->parent;
+        $cities = $region->children;
+        $categories = Category::roots()->get();
+
+        $subscribePeriods = ['asap','hour','twice-day','day','two-days'];
+
+        return view('pages.profile.fill', compact('user', 'profile', 'cities', 'categories', 'subscribePeriods'));
     }
 
     public function postFill(Request $request)
     {
-        if ($this->checkProfileType()) {
+        if (!$this->checkProfileType()) {
             return redirect('/profile');
         }
         if ($this->checkProfileFill()) {
@@ -77,7 +86,7 @@ class ProfileController extends Controller
         $user = $this->user;
         $profile = $this->user->profile;
 
-        $rules = [];
+        $rules = ['sdf' => 'required'];
         $this->validate($request, $rules);
 
         $data = [];
