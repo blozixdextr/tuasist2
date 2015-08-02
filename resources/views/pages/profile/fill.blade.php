@@ -32,12 +32,12 @@
         #citiesList .radio label input[type=checkbox] {
             margin-top: 0;
         }
-        #citiesList .radio {
+        #citiesList .checkbox {
             float: left;
             width: 150px;
-            margin: 2px;
+            margin: 0 2px;
         }
-        #citiesList .radio label {
+        #citiesList .checkbox label {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -114,6 +114,11 @@
         <h1>{!! trans('register.title') !!}</h1>
     @include('includes.errors')
     {!! Form::open(['url' => '/profile/fill', 'method' => 'post', 'class' => 'form-horizontal', 'id' => 'registerFillForm', 'files' => true]) !!}
+        @if ($user->avatar)
+            <div class="form-group">
+                <img src="{{ $user->getAvatarSrc() }}" class="profile"> <a href="#" id="setNewAvatar">{{ trans('general.change') }}?</a>
+            </div>
+        @endif
         <div id="avatarEditor" class="form-group{!! ($errors && $errors->has('avatar')) ? ' has-error' : '' !!}">
             {!! Form::label('avatar', trans('profile.avatar.label'), ['class' => 'col-sm-3 control-label']) !!}
             <div class="col-sm-9" id="avatarWrap">
@@ -145,9 +150,7 @@
 
             </div>
         </div>
-        <div class="form-group fa-iconed{!! ($errors && $errors->has('avatar')) ? ' has-error' : '' !!}">
 
-        </div>
         <div class="form-group fa-iconed{!! ($errors && $errors->has('dob')) ? ' has-error' : '' !!}">
             {!! Form::label('dob', trans('profile.dob.label'), ['class' => 'col-sm-3 control-label']) !!}
             <div class="col-sm-9">
@@ -173,14 +176,14 @@
         </div>
         <div class="form-group{!! ($errors && $errors->has('about')) ? ' has-error' : '' !!}">
             {!! Form::label('about', trans('profile.about.label'), ['class' => 'control-label']) !!}
-            {!! Form::textarea('about', old('about'), ['class' => 'form-control', 'placeholder' => trans('profile.about.placeholder'), 'required' => 'required', 'style' => 'width:100%; height:100px']) !!}
+            {!! Form::textarea('about', old('about'), ['class' => 'form-control', 'placeholder' => trans('profile.about.placeholder'), 'style' => 'width:100%; height:100px']) !!}
             {!! Form::errorMessage('about') !!}
         </div>
         <div class="form-group">
             {!! Form::label('category', trans('profile.category.label'), ['class' => 'control-label']) !!}
             <div class="panel panel-default">
                 @foreach($categories as $c)
-                    <div class="radio">
+                    <div class="checkbox">
                         <label>
                             {!! Form::checkbox('category[]', $c->id, old('category') ? in_array($c->id, old('category')) : false) !!}
                             {{ trans('categories.'.$c->title) }}
@@ -193,9 +196,9 @@
             {!! Form::label('city', trans('profile.city.label'), ['class' => 'control-label']) !!}
                 <div class="panel panel-default">
                     @foreach($cities as $c)
-                        <div class="radio">
+                        <div class="checkbox">
                             <label>
-                                {!! Form::checkbox('city[]', $c->id, old('city') ? in_array($c->id, old('city')) : false) !!}
+                                {!! Form::checkbox('city[]', $c->id, old('city', $user->location) ? in_array($c->id, old('city', $user->location)) : false) !!}
                                 {{ $c->title }}
                             </label>
                         </div>
@@ -211,7 +214,7 @@
                 @foreach($subscribePeriods as $c)
                     <div class="radio">
                         <label>
-                            {!! Form::checkbox('subscribe_period[]', $c, old('subscribe_period') ? in_array($c->id, old('subscribe_period')) : false) !!}
+                            {!! Form::radio('subscribe_period', $c, old('subscribe_period') ? $c == old('subscribe_period') : false) !!}
                             {{ trans('profile.subscribe_period.types.'.$c) }}
                         </label>
                     </div>

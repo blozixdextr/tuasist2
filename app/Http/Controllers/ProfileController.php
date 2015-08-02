@@ -11,10 +11,13 @@ use Session;
 use App\Models\User;
 use App\Models\Location;
 use App\Models\Category;
+use App\Models\Mappers\UserMapper;
 
 class ProfileController extends Controller
 {
-
+    /**
+     * @var User
+     */
     public $user;
 
     public function __construct()
@@ -86,13 +89,64 @@ class ProfileController extends Controller
         $user = $this->user;
         $profile = $this->user->profile;
 
-        $rules = ['sdf' => 'required'];
+        $rules = [
+            'avatar' => 'required',
+            'dob' => 'required|date|before:'.\Carbon\Carbon::now()->subYears(14),
+            'sex' => 'required|in:male,female',
+            'about' => 'max:255|min:2',
+            'category' => 'required|array',
+            'city' => 'required|array',
+            'subscribe_period' => 'required|in:asap,hour,twice-day,day,two-days',
+        ];
+
         $this->validate($request, $rules);
 
-        $data = [];
+        $data = $request->all();
 
-        $profile->fill($data);
+        if (isset($data['avatar']) && $data['avatar'] != '') {
+            $avatar = $this->saveAvatarFromBase64($data['avatar']);
+            if ($avatar) {
+                $avatar = pathinfo($avatar, PATHINFO_BASENAME);
+                $profile->avatar = $avatar;
+            }
+        }
+        if (isset($data['about'])) {
+            $profile->about = $data['about'];
+        }
+        $profile->sex = $data['sex'];
+        $profile->subscribe_period = $data['subscribe_period'];
+        $profile->dob = $data['dob'];
+        $profile->save();
 
+        $user->categories()->sync($data['category']);
+        $user->locations()->sync($data['city']);
+        $user->save();
+
+        return redirect('/profile');
+    }
+
+    public function saveAvatarFromBase64($base64str) {
+        list($format, $base64str) = explode(';', $base64str);
+        list($encoding, $base64str)      = explode(',', $base64str);
+        if ($encoding != 'base64') {
+            return false;
+        }
+        $data = base64_decode($base64str);
+        if (strpos($format, 'png') !== false) {
+            $format = 'png';
+        }
+        if (strpos($format, 'jpg') !== false || strpos($format, 'jpeg') !== false) {
+            $format = 'jpg';
+        }
+        if (strpos($format, 'gif') !== false) {
+            $format = 'gif';
+        }
+        $avatarPath = UserMapper::generateAvatarPath($this->user, $format);
+        if (file_put_contents($avatarPath, $data)) {
+            return $avatarPath;
+        }
+
+        return false;
     }
 
     public function getTypes()
