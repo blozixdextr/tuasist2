@@ -1,0 +1,329 @@
+*{
+    font-family: 'Open Sans','Arial',sans-serif;
+}
+.profileMainContent{
+    margin: 20px auto;
+}
+.lastOnline{
+    color:#a9a9a9;
+    font-size: 15px;
+}
+.lastOnline .lastTime{
+    float: left;
+}
+.lastOnline .profileView{
+    float: right;
+}
+.profileIntro{
+    font-size: 27px;
+    font-weight: 700;
+    color: #000;
+    margin:16px -30px 25px 0;
+}
+.personProfileBlock{
+    padding: 20px;
+}
+.profilePhoto{
+    float: left;
+    margin-right: 25px;
+}
+.ageProfile{
+    margin-right: 5px;
+}
+.profileInfo{
+    font-size: 15px;
+}
+.ageCityProfile{
+ margin-bottom: 20px;   
+}
+.numberOfTasks{
+    margin-bottom: 2px;
+}
+.profilePhoto img{
+    width: 180px;
+    height: 180px;
+}
+.photoAndInfoProfile{
+    height: 180px;
+    margin-bottom: 30px;
+}
+.middleMarkProfile{
+    padding-left: 20px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #f8f7ee;
+    font-size: 15px;
+}
+.middleMarksVezhlivost,
+.middleMarkPunktual{
+    margin-right: 10px;
+}
+.profileMarkLow{
+    color:#000;
+    font-size: 22px;
+    font-weight: bold;
+}
+.commentsProfileMain{
+    color:#000;
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: bold;
+}
+.fa-hand-peace-o{
+    color: #535b60;
+}
+.commentWindowPhoto{
+    float: left;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.commentWindowName a{
+    color:#4099fb;
+}
+.commentWindowName a:hover{
+    color:#4099fb;
+}
+    
+.commentWindowBadge1{
+    width: 21px;
+    color:#fff;
+    font-size: 12px;
+    padding: 1px 0 0 3px;
+    height: 25px;
+    display: inline-block;
+    background: url(../img/badgeProfileComment.png) 0 -664px no-repeat;
+    line-height: 28px;
+    text-shadow: 0 1px 1px rgba(55,150,235,.5);
+}
+.commentWindowBadge2{
+    color:#fff;
+    font-size: 12px;
+    padding:0px 0 0 5px;
+    width: 23px;
+    height: 25px;
+    display: inline-block;
+    background: url(../img/badgeProfileComment.png) 0 -734px no-repeat;
+    line-height: 28px;
+    text-shadow: 0 1px 1px rgba(55,150,235,.5);
+}
+.otzivProfile,
+.commentWindowGood,
+.commentWindowBad,
+.commentWindowWho{
+    color: #a9a9a9;
+    font-size: 13px;
+}
+.commentWindowGood{
+    padding-left: 14px;
+    background: url(../img/badgeProfileComment.png) 0 -344px no-repeat;
+}
+.commentWindowBad{
+    padding-left: 14px;
+    background: url(../img/badgeProfileComment.png) 0 -360px no-repeat;
+}
+.commentWindowFirstRow{
+    margin-bottom: 1px;
+}
+.commentWindowSecondRow{
+    font-size: 13px;
+    color:#000;
+}
+.commentProfile{
+    clear: both;
+    pointer-events: auto!important;
+    padding: 20px 20px 10px;
+    margin: 12px 0 8px 30px;
+    background-color: #f9f6ef;
+    box-shadow: -1px 1px 2px #dcdcdc;
+    border-radius: 10px;
+    position: relative;
+    line-height: 18px;
+    color: #4e4e4e;
+    word-wrap: break-word;
+}
+.vezh,
+.punkt{
+    margin-right: 10px;
+}
+.vezh,
+.punkt,
+.adecv{
+    color:#DBDAD3;
+}
+.commentProfile:hover .vezh,
+.commentProfile:hover .punkt,
+.commentProfile:hover .adecv{
+    color: #8b8b8b;
+}
+.commentProfile:hover .vezh .fa,
+.commentProfile:hover .punkt .fa,
+.commentProfile:hover .adecv .fa{
+    color:#40A5FC;
+}
+.profileDate{
+    float: right;
+    font-size: 13px;
+}
+.commentWindow{
+    margin-bottom: 30px;
+}
+.alreadtContacts,
+.bestProfile h3,
+.lastNewsProfile h3{
+    padding-left: 32px;
+    text-align: left;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+}
+.profileAlreadyContacts{
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 2px solid #e6e6e6;
+    position: relative;
+    max-width: 280px;
+}
+.profileAlreadyContacts p{
+    margin: 0;
+    color:#000;
+}
+.profileAlreadyContacts li{
+    position: relative;
+    padding: 15px 15px 15px 45px;
+    border-bottom: 1px solid #f2f2f2;
+}
+.profPhone:before{
+    content: "";
+    width: 18px;
+    height: 19px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    margin-top: -9px;
+    background: url(../img/phoneSprite.png) no-repeat;
+    background-position: 0 -22px;
+}
+.profEmail:before{
+    content: "";
+    width: 18px;
+    height: 19px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    margin-top: -9px;
+    background: url(../img/phoneSprite.png) no-repeat;
+    background-position: 0 -47px;
+}
+.profFacebook:before{
+    content: "";
+    width: 18px;
+    height: 19px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    margin-top: -9px;
+    background: url(../img/phoneSprite.png) no-repeat;
+    background-position: 0 -74px;
+}
+.bestProfile ul{
+        width: 230px;
+    margin: 0 auto;
+}
+.bestProfile ul li{
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.bestProfile p{
+    padding-left:32px ;
+    color: #4e4e4e;
+    font-size: 13px;
+}
+.lastNewsProfile p{
+    padding-left:32px ;
+}
+.alreadtContacts{
+    margin-bottom: 35px;
+}
+.lastNewsProfile a{
+    color:#40A5FC;
+    border-bottom:1px solid #40A5FC;
+}
+.lastNewsProfile a:hover{
+    color:#40A5FC;
+}
+.lastNewsProfile h3{
+    margin-bottom: 20px;
+}
+.bestProfile,
+.lastNewsProfile{
+    margin: 50px 0;
+}
+.headerProfile .logo-wrapper{
+    margin: 10px 0 0 30px;
+}
+.alreadtContacts{
+    margin-top: 50px;
+}
+@media(max-width:750px){
+    p.otherMarksProfile span{
+        display: block;
+    }
+    .alreadtContacts, .bestProfile h3, .lastNewsProfile h3 {
+        text-align: center;
+        padding-left: 0;
+        margin: 25px 0 20px 0;
+    }
+    .bestProfile, .lastNewsProfile {
+        margin: 50px 0;
+        text-align: center;
+    }
+    .bestProfile p {
+    text-align: center;
+    padding-left: 0;
+    }
+    .lastNewsProfile p{
+        padding-left: 0;
+    }
+}
+@media(max-width:430px){
+    .profileMainContent{
+        margin-top: 0;
+    }
+    .lastOnline .lastTime {
+        float: none;
+        display: block;
+    }
+    .lastOnline .profileView{
+        float:none;
+        display: block;
+    }
+    .profileIntro{
+        line-height: 1.2;
+        max-width: 380px;
+    }
+    .profilePhoto {
+        float: none;
+        display: flex;
+        justify-content: center;
+    }
+    .photoAndInfoProfile {
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .profileInfo {
+        text-align: center;
+    }
+    .service-content{
+        padding: 0;
+    }
+    .libraryCategories p,
+    .libraryHowWorks p {
+        width: auto;
+    }

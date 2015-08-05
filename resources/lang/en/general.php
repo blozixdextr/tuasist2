@@ -7,10 +7,12 @@ return [
     'and' => 'and',
     'save' => 'save',
     'accept' => 'accept',
+    'login' => 'login',
+    'register' => 'register',
 
     'site' => [
         'name' => 'Tuasist English Global',
-        'title' => 'Welcome',
+        'title' => 'Get Stuff Done',
     ],
 
 ];

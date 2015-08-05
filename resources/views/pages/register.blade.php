@@ -1,4 +1,4 @@
-@extends('layouts.index')
+@extends('layouts.register')
 
 @section('content')
    <h1>{{ trans('register.title') }}</h1>

@@ -1,0 +1,471 @@
+a{
+    color:orange;
+}
+a:hover{
+    color:orange;
+}
+.height90{
+height: 60px;
+}
+.header-shadow{
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+.header-shadow .logo-wrapper{
+    display: inline-block;
+    float: left;
+    margin: 10px 0 0 10px;
+}
+.mainMenu{
+    margin: 24px 0 0 80px;
+    display: inline-block;
+    font-size: 16px;
+}
+.mainMenu ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+.mainMenu ul li:last-child{
+    margin-right: 0;
+}
+.mainMenu ul li a{
+    color:#fff;
+}
+.mainMenu ul li a:hover{
+    color:#fff;
+    text-decoration: underline !important;
+}
+.header-shadow .links{
+    position: absolute;
+    top: 8px;
+    right: 20px;
+}
+.about-service{
+    background-color: #E8EFF5;
+    margin: 0 0 20px 0;
+}
+.about-service>div{
+    line-height: 12px;
+    padding: 20px;
+    text-align: center;
+}
+.mapImage{
+    margin-bottom: 20px;
+}
+.mapButton,
+.mapImage{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+}
+.mapButton{
+    margin-bottom: 20px;
+}
+
+.mapButton a{
+    padding: 10px 20px;
+    color: #000;
+    font-size: 16px;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 2px solid #2098D1;
+}
+.kategoryService{
+    padding-left: 40px;
+}
+.kategoryService ul li {
+    line-height: 32px;
+}
+.kategoryService ul li a{
+    font-size: 16px;
+    color:#2098D1;
+}
+.kategoryService ul li a:hover{
+    text-decoration: underline !important;
+}
+.kategoryService ul li .kategoryServiceLinkActive:hover{
+    text-decoration: none !important;
+}
+.kategoryServiceLinkActive{
+    color: #000 !important;
+    font-weight: 700;
+    cursor: default;
+}
+.headerLanding div.logo-wrapper{
+    margin: 10px 0 0 80px;
+}
+@media(max-width:1192px){
+    .headerLanding div.logo-wrapper{
+        margin: 10px 0 0 30px;
+    }
+}
+@media(max-width:750px){
+    .headerLanding div.logo-wrapper{
+        margin: 10px 0 0 5px;
+    }
+}  
+.wantWork{
+    margin-left: 40px;
+}
+.wantWork a{
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+        margin: 50px 0 60px;
+    padding: 15px 15px 15px 75px;
+    background-color: #edf2f7;
+    position: relative;
+    line-height: 1.4;
+    color: #000;
+}
+.wantWork a:before{
+    content: "";
+    width: 45px;
+    height: 54px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    margin-top: -27px;
+    background: url(../img/blueShield.png) no-repeat;
+}
+.randomTask{
+    padding-left: 40px;
+}
+.randomTask ul li{
+    margin-bottom: 20px;
+}
+.randomTask ul li:last-child{
+    margin-bottom: 0;
+}
+.randomTaskTitle{
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color:#000;
+    line-height: 21px;
+}
+.randomTask ul li a{
+    color:#000;
+    text-decoration: underline !important;
+    font-size: 14px;
+}
+.randomTask ul li a:hover{
+    text-decoration: none !important;
+}
+.randomTask ul li p span{
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 12px;
+    color: #949494;
+}
+.previewService{
+    padding: 15px 35px;
+    background-color: #f8f7ee;
+    border-bottom: 1px solid #e4ebf1;
+}
+.cityService{
+    position: absolute;
+    top: 9px;
+    height: 20px;
+    right: 35px;
+}
+.cityService a{
+    display: inline-block;
+    text-decoration: none;
+    color: #8f8d84;
+    border-bottom: 1px dotted #8f8d84;
+}
+.categoryNameService{
+    font-weight: 600;
+    margin: 0 120px 20px 0;
+    font-size: 2.7rem;
+    line-height: 3rem;
+    color: #000;
+}
+.newTasks{
+    color:#000;
+    font-size: 16px;
+}
+.commentService{
+    overflow: hidden;
+    padding: 25px 35px 30px;
+    border-top: 1px solid #e3ebf1;
+    position: relative;
+    color: #6a6b6c;
+}
+.emptyFieldService{
+    padding: 0px;
+    height: 80px;
+    position: static !important;
+}
+.commentService:hover{
+    background-color: #f8fbfd;
+}
+.commentServiceName a{
+    color:#2098D1;
+    font-size: 20px;
+    padding-right: 45px;
+}
+.commentServiceName{
+    margin-bottom: 20px;
+}
+.commentServicePrice{
+    display: inline-block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 34px;
+    padding: 0 9px;
+    position: relative;
+    background: #2098D1;
+    white-space: nowrap;
+    font-size: 1.6rem;
+    line-height: 3.4rem;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    border-radius: 5px;
+}
+.commentServicePrice:before {
+    left: -6px;
+    background-position: 0 -85px;
+}
+.commentServicePrice:after {
+    right: -6px;
+    background-position: -7px -85px;
+}
+.commentPhoto img{
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+.commentServiceLeft{
+    float: left;
+    width: 250px;
+}
+.commentServiceRight{
+        margin-top: 65px;
+    margin-left: 260px;
+}
+.commentServiceTime{
+    margin: 5px;
+}
+.commentServiceName a:hover{
+    text-decoration: underline !important;
+}
+.commentServiceTime,
+.commentServiceLocation{
+    text-align: right;
+}
+.commentServiceTime i,
+.commentServiceLocation i,
+.commentPhotoOtziv i{
+  color:#2098D1;  
+}
+.commentPhotoName a{
+    color:#2098D1;
+}
+.commentPhotoName{
+    margin: 10px 0 5px 0;
+}
+.rightService{
+        padding: 0;
+    -webkit-box-shadow:-5px 0 22px rgba(90,90,90,0.3);
+    box-shadow:-5px 0 22px rgba(90,90,90,0.3);
+}
+
+.commentServiceCrumps{
+    text-align: center;
+    font-size: 17px;
+    line-height: 26px;
+    padding: 55px 0 50px;
+    border-top: 1px solid #e3ebf1;
+}
+.commentServiceCrumps ul li{
+        padding: 3px 7px;
+    display: inline-block;
+}
+.commentServiceCrumps ul li a{
+    border-bottom: 1px solid rgba(64,153,251,.5);
+    color: #4099fb;
+    line-height: 20px;
+}
+.commentServiceCrumpsActive{
+    background-color: #fef2b3;
+    font-weight: 700;
+}
+.commentServiceCrumpsActive a{
+    border-bottom: none !important;
+    color: #000 !important;
+}
+.commentServiceCrumps ul{
+    margin-bottom: 20px;
+}
+.forAbout-{
+        margin: 0;
+    width: 100%;
+}
+.archiv{
+    padding: 10px 20px;
+    color: #000;
+    font-size: 16px;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 2px solid #2098D1;
+}
+.service-content{
+    margin-bottom: 30px;
+}
+.libraryCategories p,
+.libraryHowWorks p{
+    width: 150px;
+    margin-bottom: 0;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+}
+.libraryCategories{
+    margin-bottom: 10px;
+}
+.libraryCategories span a,
+.libraryHowWorks span a{
+    border-bottom: 1px solid rgba(155,155,155,.5);
+    color: #9b9b9b;
+}
+.libraryCategories span a:hover,
+.libraryHowWorks span a:hover{
+    border-bottom: 0px;
+}
+.library{
+    margin: 35px 0;
+}
+.logoInFooter{
+    color:#fff;
+    text-align: center;
+}
+.logoInFooter:hover{
+    color:#fff;
+}
+.footer_new{
+    text-align: center;
+}
+.commentServiceCrumps ul li a:hover{
+    border-bottom:0;
+}
+.forAbout-setvice{
+    width: 100%;
+}
+.header-shadow>div{
+    position: relative;
+}
+@media(max-width:670px){
+    .map{
+        margin-top: 30px;
+    }
+    .header-shadow {
+        height: 120px;
+    }
+    .header-shadow .links {
+    position: absolute;
+    top: 68px;
+    right: 0;
+    width: 195px;
+    left: 0;
+    margin: 0 auto;
+    }
+    .mainMenu {
+    margin: 24px 0 0 5px;
+    float: right;
+    }
+    .height90 {
+    height:0px;
+    }
+    .header-shadow {
+    z-index: 9999;
+    position: static;
+    }
+    .kategoryService {
+    padding-left: 10px;
+    }
+    .wantWork {
+    margin-left: 15px;
+    }
+    .randomTask {
+    width: 340px;
+    margin: 0 auto;
+    padding-left: 10px;
+    }
+    .commentServiceLeft {
+    float: left;
+    width: 112px;
+    }
+    .commentServiceTime, .commentServiceLocation {
+    text-align: right;
+    }
+    .commentServiceRight {
+    margin-left: 110px;
+    margin-top: 44px;
+    }
+}
+@media(max-width:380px){
+    .header-shadow {
+        height: 180px;
+    }
+    .header-shadow .logo-wrapper {
+    text-align: center;
+    width: 100%;
+    }
+    .mainMenu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 85px;
+    }
+    .commentServiceName {
+    margin-bottom: 20px;
+    max-width: 150px;
+    }
+    .service-content,
+    .leftService,
+    .rightService{
+    width: 100%;
+    padding: 0;
+    }
+    .emptyFieldService, .commentService {
+    padding: 15px 15px 15px;
+    }
+    .libraryCategories p, .libraryHowWorks p {
+        width: auto;
+        margin-bottom: 0;
+    }
+    .libraryCategories{
+        margin-bottom: 10px;
+    }
+    .library{
+        line-height: 25px;
+    }
+}
+@media(max-width:1025px){
+    .kategoryService{
+        text-align: center;
+        padding: 0;
+    }
+    .wantWork{
+        text-align: center;
+        margin-left: 0;
+    }
+    .randomTask{
+        text-align: center;
+        padding-left: 0;
+    }
+    }
+}

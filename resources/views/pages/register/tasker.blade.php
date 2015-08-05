@@ -1,4 +1,4 @@
-@extends('layouts.index')
+@extends('layouts.register')
 
 @section('head-style')
     <link rel="stylesheet" href="/assets/libs/tel-input/css/intlTelInput.css">
@@ -86,6 +86,7 @@
 
 
 @section('content')
+    <div class="row"><div class="col-lg-12">
     <div id="registerFormWrap" style="max-width: 600px; margin: 0 auto">
         <h1>{!! trans('register.title') !!}</h1>
         @include('includes.errors')
@@ -202,14 +203,15 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group regButtons">
             <div class="col-sm-offset-3 col-sm-9">
-                {!! Form::submit(trans('register.submit'), ['class' => 'btn btn-primary btn-lg']) !!} or
-                <a href="/auth/facebook?type=tasker&user_type=personal" class="btn btn-primary btn-lg">{!! trans('register.facebook.label') !!}</a>
+                {!! Form::submit(trans('register.submit'), ['class' => 'hvr-fade']) !!} or
+                <a href="/auth/facebook?type=tasker&user_type=personal" class="hvr-fade">{!! trans('register.facebook.label') !!}</a>
             </div>
         </div>
 
         {!! Form::close() !!}
     </div>
+        </div></div>
 
 @endsection

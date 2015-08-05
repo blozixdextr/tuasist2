@@ -1,4 +1,4 @@
-@extends('layouts.index')
+@extends('layouts.regsiter')
 
 @section('head-style')
     <link rel="stylesheet" href="/assets/libs/tel-input/css/intlTelInput.css">
