@@ -44,3 +44,6 @@ Route::post('register/tasker', 'Auth\AuthController@postRegisterTasker');
 
 
 Route::get('/test', 'TestController@test');
+Route::get('paypal/test', 'PaypalController@test');
+Route::get('payment/paypal/callback/success/{taskId}', 'PaypalController@success');
+Route::get('payment/paypal/callback/fail/{taskId}', 'PaypalController@fail');
