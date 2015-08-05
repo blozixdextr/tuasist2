@@ -3,6 +3,7 @@
 namespace App\Models\Mappers;
 
 use App\Models\User ;
+use App\Models\UserProfile ;
 
 class UserMapper
 {
@@ -18,6 +19,15 @@ class UserMapper
 
     public static function generateAvatarPath(User $user, $format = 'jpg') {
         return self::getAvatarDir().'/'.$user->id.'.'.$format;
+    }
+
+    public static function getAvatarSrc(UserProfile $profile) {
+        if ($profile->avatar) {
+            $avatar = $profile->avatar;
+        } else {
+            $avatar = 'user.jpg';
+        }
+        return '/'.User::avatarDir.'/'.$avatar;
     }
 
 }

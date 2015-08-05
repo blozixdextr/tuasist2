@@ -36,9 +36,17 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '1627837127455466',
-        'client_secret' => 'e58c617d4b609947ff89036d0231b699',
-        'redirect' => url('auth/facebook/callback'),
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => PHP_SAPI === 'cli' ? false : url(env('FACEBOOK_REDIRECT'))
+    ],
+
+    'paypal' => [
+        'client_id' => env('PAYPAL_CLIENT_ID'),
+        'client_secret' => env('PAYPAL_CLIENT_SECRET'),
+        'redirect' => PHP_SAPI === 'cli' ? false : url(env('PAYPAL_REDIRECT')),
+        'account' => env('PAYPAL_CLIENT_ACCOUNT'),
+        'endpoint' => env('PAYPAL_CLIENT_ENDPOINT'),
     ],
 
 ];

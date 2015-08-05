@@ -114,11 +114,6 @@
         <h1>{!! trans('register.title') !!}</h1>
     @include('includes.errors')
     {!! Form::open(['url' => '/profile/fill', 'method' => 'post', 'class' => 'form-horizontal', 'id' => 'registerFillForm', 'files' => true]) !!}
-        @if ($user->avatar)
-            <div class="form-group">
-                <img src="{{ $user->getAvatarSrc() }}" class="profile"> <a href="#" id="setNewAvatar">{{ trans('general.change') }}?</a>
-            </div>
-        @endif
         <div id="avatarEditor" class="form-group{!! ($errors && $errors->has('avatar')) ? ' has-error' : '' !!}">
             {!! Form::label('avatar', trans('profile.avatar.label'), ['class' => 'col-sm-3 control-label']) !!}
             <div class="col-sm-9" id="avatarWrap">

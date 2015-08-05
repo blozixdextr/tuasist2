@@ -33,6 +33,11 @@ class CreateUserProfilesTable extends Migration
             $table->string('twitter', 255)->nullable()->index('twitter');
             $table->string('google', 255)->nullable()->index('google');
             $table->string('paypal', 255)->nullable()->index('paypal');
+            $table->boolean('confirmed_email')->nullable()->default(0);
+            $table->boolean('confirmed_mobile')->nullable()->default(0);
+            $table->boolean('confirmed_passport')->nullable()->default(0);
+            $table->boolean('confirmed_facebook')->nullable()->default(0);
+            $table->boolean('confirmed_paypal')->nullable()->default(0);
             $table->timestamps();
         });
     }

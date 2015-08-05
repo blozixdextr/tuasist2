@@ -220,6 +220,7 @@ class AuthController extends Controller
             }
             $profile = $localUser->profile;
             $profile->facebook = 'http://facebook.com/'.$nickname;
+            $profile->confirmed_facebook = true;
             $localUser->save();
             $avatarPath = UserMapper::generateAvatarPath($localUser);
             try {

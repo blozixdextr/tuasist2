@@ -58,6 +58,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany(UserPoint::class);
     }
 
+    public function confirms()
+    {
+        return $this->hasMany(UserConfirm::class);
+    }
+
     public function messagesTo()
     {
         return $this->hasMany(Message::class, 'user_id_recipient');
@@ -75,7 +80,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function categories()
     {
-        return $this->belongsToMany(Location::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public static function scopeOauth($query, $oauthId, $provider)
@@ -83,12 +88,5 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $query->where('provider', '=', $provider)->where('oauth_id', '=', $oauthId);
     }
 
-    public function getAvatarSrc() {
-        if ($this->avatar) {
-            $avatar = $this->avatar;
-        } else {
-            $avatar = 'user.jpg';
-        }
-        return '/'.$this::avatarDir.'/'.$avatar;
-    }
+
 }
