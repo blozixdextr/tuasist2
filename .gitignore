@@ -10,3 +10,4 @@ _ide_helper_models.php
 composer.lock
 access.log
 error.log
+Thumbs.db

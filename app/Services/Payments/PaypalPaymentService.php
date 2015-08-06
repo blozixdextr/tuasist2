@@ -98,12 +98,6 @@ class PaypalPaymentService
     public function storePaymentSession($paymentId, $taskId)
     {
         Session::set('paypal.payment', ['id' => $paymentId, 'taskId' => $taskId]);
-        /*
-        $paymentId = Input::get('paymentId');
-        $payerID = Input::get('PayerID');
-        $token = Input::get('token');
-        dd($paymentId, $payerID, $token);
-        */
     }
 
     public function checkPaymentSession($paymentId, $task)
@@ -124,6 +118,8 @@ class PaypalPaymentService
         if ($taskId != $task->id) {
             throw new \Exception('Task Id mismatch');
         }
+
+        // @todo: Maybe check date here
 
         Session::remove('paypal.payment');
 
