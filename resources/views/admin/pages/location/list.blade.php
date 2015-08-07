@@ -32,7 +32,7 @@
             <td>{{ $l->id }}</td>
             <td>{{ $l->type }}</td>
             <td>
-                <a href="/admin/category/show/{{ $l->id }}">{{ $l->title }}</a>
+                <a href="/admin/location/show/{{ $l->id }}">{{ $l->title }}</a>
             </td>
             <td>
                 @if ($l->type == 'state')
