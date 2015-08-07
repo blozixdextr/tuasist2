@@ -41,8 +41,12 @@ class Category extends Model
     {
         $image = $this->image;
         $icon = $this->icon;
-        unlink( public_path(self::iconDir).'/'.$icon);
-        unlink( public_path(self::imageDir).'/'.$image);
+        if ($icon) {
+            unlink( public_path(self::iconDir).'/'.$icon);
+        }
+        if ($image) {
+            unlink(public_path(self::imageDir) . '/' . $image);
+        }
         parent::delete();
     }
 }

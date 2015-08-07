@@ -28,12 +28,18 @@
     @forelse($categories as $c)
         <tr>
             <td>{{ $c->id }}</td>
-            <td>{{ $c->title }}</td>
+            <td><a href="/admin/category/show/{{ $c->id }}">{{ $c->title }}</s></td>
             <td><a class="btn btn-default" href="{{ $c->url() }}">{{ $c->url() }}</a></td>
-            <td><a class="btn btn-primary btn-xs" href="/admin/category?id={{ $c->id }}">{{ $c->children()->count() }} childs</a></td>
+            <td>
+                @if ($c->type == 'category')
+                    <a class="btn btn-primary btn-xs" href="/admin/category?id={{ $c->id }}">{{ $c->children()->count() }} childs</a>
+                @else
+                    -
+                @endif
+            </td>
             <td>
                 @if ($c->children()->count() == 0)
-                    <a class="btn btn-danger btn-xs confirm-delete" href="/admin/category/delete/{{ $c->id }}">delete</a>
+                    <a class="btn btn-danger btn-xs confirm-delete" href="/admin/category/destroy/{{ $c->id }}">delete</a>
                 @endif
                 <a class="btn btn-primary btn-xs" href="/admin/category/edit/{{ $c->id }}">edit</a>
             </td>

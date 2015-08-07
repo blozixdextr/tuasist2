@@ -60,3 +60,4 @@ Route::get('/admin/category/edit/{id}', 'Admin\CategoryController@edit');
 Route::post('/admin/category/update/{id}', 'Admin\CategoryController@update');
 Route::get('/admin/category/create', 'Admin\CategoryController@create');
 Route::post('/admin/category/store/{id}', 'Admin\CategoryController@store');
+Route::get('/admin/category/destroy/{id}', 'Admin\CategoryController@destroy');
