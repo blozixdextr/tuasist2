@@ -28,7 +28,7 @@
     @forelse($categories as $c)
         <tr>
             <td>{{ $c->id }}</td>
-            <td><a href="/admin/category/show/{{ $c->id }}">{{ $c->title }}</s></td>
+            <td><a href="/admin/category/show/{{ $c->id }}">{{ $c->title }}</a></td>
             <td><a class="btn btn-default" href="{{ $c->url() }}">{{ $c->url() }}</a></td>
             <td>
                 @if ($c->type == 'category')

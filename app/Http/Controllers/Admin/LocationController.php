@@ -20,7 +20,7 @@ class LocationController extends Controller
             $location = Location::findOrFail($pid);
             $locations = $location->children;
         }
-        return view('admin.pages.locations.list', compact('locations', 'location'));
+        return view('admin.pages.location.list', compact('locations', 'location'));
     }
 
     public function getRequestData(Request $request) {
