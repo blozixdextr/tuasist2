@@ -9,6 +9,7 @@ Form::macro('errorMessage', function($field){
 });
 
 HTML::macro('activeLink', function($route) {
+    $route = ltrim($route, '/');
     if (Request::path() == $route) {
         $str = ' class="active"';
     } else {

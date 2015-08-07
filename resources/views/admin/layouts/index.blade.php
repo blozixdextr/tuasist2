@@ -17,6 +17,8 @@
         </aside>
 
         <div class="content-wrapper">
+            @include('includes.errors')
+            @include('includes.alerts')
             <section class="content">
                 @yield('content')
             </section>

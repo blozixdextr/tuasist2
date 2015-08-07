@@ -54,3 +54,9 @@ Route::get('stripe/test', 'StripeController@test');
 
 /* ADMIN */
 Route::get('/admin', 'Admin\IndexController@index');
+Route::get('/admin/category', 'Admin\CategoryController@index');
+Route::get('/admin/category/show/{id}', 'Admin\CategoryController@show');
+Route::get('/admin/category/edit/{id}', 'Admin\CategoryController@edit');
+Route::post('/admin/category/update/{id}', 'Admin\CategoryController@update');
+Route::get('/admin/category/create', 'Admin\CategoryController@create');
+Route::post('/admin/category/store/{id}', 'Admin\CategoryController@store');

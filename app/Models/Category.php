@@ -8,7 +8,11 @@ class Category extends Model
 {
     protected $table = 'categories';
 
-    protected $fillable = ['pid', 'icon', 'image', 'title', 'subtitle', 'seo', 'type'];
+    protected $fillable = ['pid', 'icon', 'image', 'title', 'subtitle', 'type'];
+
+    const iconDir = 'uploads/categories/icon';
+
+    const imageDir = 'uploads/categories/image';
 
     public function users()
     {
@@ -27,5 +31,18 @@ class Category extends Model
 
     public function scopeRoots($query) {
         return $query->where('type', 'category')->where('pid', 0);
+    }
+
+    public function url() {
+        return '/c/'.trans('categories.'.$this->title.'.url').'/'.$this->id;
+    }
+
+    public function delete()
+    {
+        $image = $this->image;
+        $icon = $this->icon;
+        unlink( public_path(self::iconDir).'/'.$icon);
+        unlink( public_path(self::imageDir).'/'.$image);
+        parent::delete();
     }
 }
