@@ -7,3 +7,13 @@ Form::macro('errorMessage', function($field){
     }
     return '';
 });
+
+HTML::macro('activeLink', function($route) {
+    if (Request::path() == $route) {
+        $str = ' class="active"';
+    } else {
+        $str = '';
+    }
+    return $str;
+});
+

@@ -181,7 +181,7 @@
                     <div class="checkbox">
                         <label>
                             {!! Form::checkbox('category[]', $c->id, old('category') ? in_array($c->id, old('category')) : false) !!}
-                            {{ trans('categories.'.$c->title) }}
+                            {{ trans('categories.'.$c->title.'.title') }}
                         </label>
                     </div>
                 @endforeach
@@ -189,18 +189,17 @@
         </div>
         <div class="form-group" id="citiesList">
             {!! Form::label('city', trans('profile.city.label'), ['class' => 'control-label']) !!}
-                <div class="panel panel-default">
-                    @foreach($cities as $c)
-                        <div class="checkbox">
-                            <label>
-                                {!! Form::checkbox('city[]', $c->id, old('city', $user->location) ? in_array($c->id, old('city', $user->location)) : false) !!}
-                                {{ $c->title }}
-                            </label>
-                        </div>
-                    @endforeach
-                    <div class="clearfix"></div>
-                </div>
-
+            <div class="panel panel-default">
+                @foreach($cities as $c)
+                    <div class="checkbox">
+                        <label>
+                            {!! Form::checkbox('city[]', $c->id, old('city', $user->location) ? in_array($c->id, old('city', $user->location)) : false) !!}
+                            {{ $c->title }}
+                        </label>
+                    </div>
+                @endforeach
+                <div class="clearfix"></div>
+            </div>
         </div>
 
         <div class="form-group">

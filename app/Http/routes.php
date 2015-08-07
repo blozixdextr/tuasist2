@@ -49,3 +49,8 @@ Route::get('payment/paypal/callback/success/{taskId}', 'PaypalController@success
 Route::get('payment/paypal/callback/fail/{taskId}', 'PaypalController@fail');
 
 Route::get('stripe/test', 'StripeController@test');
+
+
+
+/* ADMIN */
+Route::get('/admin', 'Admin\IndexController@index');

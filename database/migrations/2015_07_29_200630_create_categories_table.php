@@ -20,6 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->string('title', 255);
             $table->string('subtitle', 255)->nullable();
             $table->text('seo')->nullable();
+            $table->text('url')->nullable();
             $table->enum('type', ['category', 'subcategory', 'subsubcategory'])->index('type')->nullable()->default('category');
             $table->timestamps();
         });
