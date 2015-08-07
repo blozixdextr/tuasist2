@@ -20,7 +20,7 @@ class CategoryController extends Controller
             $category = Category::findOrFail($pid);
             $categories = $category->children;
         }
-        return view('admin/pages/category.list', compact('categories', 'category'));
+        return view('admin.pages.category.list', compact('categories', 'category'));
     }
 
     public function getRequestFiles(Request $request, Category $category, $data) {
@@ -75,7 +75,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $roots = Category::roots()->get();
-        return view('admin/pages/category.edit', compact('category', 'roots'));
+        return view('admin.pages.category.edit', compact('category', 'roots'));
     }
 
     public function update($id, Request $request)
@@ -98,7 +98,7 @@ class CategoryController extends Controller
         }
         $roots = Category::roots()->get();
 
-        return view('admin/pages/category.add', compact('category', 'roots', 'pid'));
+        return view('admin.pages.category.add', compact('category', 'roots', 'pid'));
     }
 
     public function store(Request $request)
@@ -121,6 +121,6 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::findOrFail($id);
-        return view('admin/pages/category.show', compact('category'));
+        return view('admin.pages.category.show', compact('category'));
     }
 }

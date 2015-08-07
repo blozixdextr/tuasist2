@@ -25,6 +25,11 @@ class Location extends Model
         return $this->belongsTo(Location::class, 'pid');
     }
 
+    public function siblings()
+    {
+        return $this->parent->children;
+    }
+
     public function scopeStates($query) {
         return $query->where('type', 'state')->where('pid', 0);
     }

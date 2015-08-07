@@ -54,17 +54,16 @@ class LocationController extends Controller
 
     public function edit($id)
     {
-        $category = Location::findOrFail($id);
-        $states = Location::states()->get();
-        return view('admin/pages.category.edit', compact('category', 'roots'));
+        $location = Location::findOrFail($id);
+        $parents = $location->siblings();
+        return view('admin.pages.location.edit', compact('location', 'parents'));
     }
 
     public function update($id, Request $request)
     {
-        $category = Category::findOrFail($id);
+        $location = Location::findOrFail($id);
         $data = $this->getRequestData($request);
-        $data = $this->getRequestFiles($request, $category, $data);
-        $category->fill($data)->save();
+        $location->fill($data)->save();
 
         return Redirect::back();
     }
@@ -73,35 +72,34 @@ class LocationController extends Controller
     {
         $pid = intval(Input::get('id', 0));
         if ($pid != 0) {
-            $category = Category::findOrFail($pid);
+            $location = Location::findOrFail($pid);
         } else {
-            $category = false;
+            $location = false;
         }
-        $roots = Category::roots()->get();
+        $parents = $location->siblings();
 
-        return view('admin/pages/category.add', compact('category', 'roots', 'pid'));
+        return view('admin.pages.location.add', compact('location', 'parents', 'pid'));
     }
 
     public function store(Request $request)
     {
         $data = $this->getRequestData($request);
-        $category = Category::create($data);
-        $data = $this->getRequestFiles($request, $category, []);
-        $category->fill($data)->save();
+        $location = Location::create($data);
+        $location->fill($data)->save();
 
-        return Redirect::to('/admin/category/edit/'.$category->id);
+        return Redirect::to('/admin/location/edit/'.$location->id);
     }
 
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
+        $location = Location::findOrFail($id);
+        $location->delete();
         return Redirect::back();
     }
 
     public function show($id)
     {
-        $category = Category::findOrFail($id);
-        return view('admin/pages/category.show', compact('category'));
+        $location = Location::findOrFail($id);
+        return view('admin.pages.location.show', compact('location'));
     }
 }
