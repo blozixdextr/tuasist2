@@ -70,3 +70,7 @@ Route::post('/admin/location/update/{id}', 'Admin\LocationController@update');
 Route::get('/admin/location/create', 'Admin\LocationController@create');
 Route::post('/admin/location/store/{id}', 'Admin\LocationController@store');
 Route::get('/admin/location/destroy/{id}', 'Admin\LocationController@destroy');
+// user
+Route::get('/admin/user', 'Admin\UserController@index');
+Route::get('/admin/user/ban/{id}', 'Admin\UserController@ban');
+Route::get('/admin/user/unban/{id}', 'Admin\UserController@unban');

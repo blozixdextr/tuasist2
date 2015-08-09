@@ -88,5 +88,21 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $query->where('provider', '=', $provider)->where('oauth_id', '=', $oauthId);
     }
 
+    public static function scopeSimpleSearch($query, $search, $onlyActive = false)
+    {
+        $query->select('users.*');
+        $query->join('user_profiles', 'users.id', '=', 'user_profiles.user_id');
+        if ($onlyActive) {
+            $query->where('is_active', 1);
+        }
+        $query->where(function($query) use ($search) {
+            $query->where('email', '=', $search)->orWhere('name', 'like', '%'.$search.'%')
+                    ->orWhere('user_profiles.first_name', 'like', '%'.$search.'%')
+                    ->orWhere('user_profiles.last_name', 'like', '%'.$search.'%');
+        });
+
+        return $query;
+    }
+
 
 }
