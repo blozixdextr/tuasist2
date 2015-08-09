@@ -12,10 +12,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        $name = Input::get('name', false);
-        $onlyActive = Input::get('only_active', false);
-        $perPage = Input::get('per_page', 15);
-        if ($name) {
+        $name = Input::get('name', '');
+        $onlyActive = Input::get('only_active', '');
+        $perPage = Input::get('per_page', 50);
+        if ($name || $onlyActive) {
             $users = User::simpleSearch($name, $onlyActive)->with('profile')->paginate($perPage);
         } else {
             $users = User::with('profile')->paginate($perPage);

@@ -69,6 +69,6 @@
     @endforelse
     </table>
 
-    {!! $users->render() !!}
+    {!! $users->appends(['name' => $name, 'only_active' => $onlyActive])->render() !!}
 
     @endsection
