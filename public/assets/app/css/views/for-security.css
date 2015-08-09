@@ -1,0 +1,53 @@
+.security-content h1{
+    color:#000;
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+.security-content h3{
+    margin-bottom: 40px;
+    color:#000;
+    font: italic 22px/25px Georgia;
+}
+.security-descr span {
+    display: block;
+    font-weight: bold;
+    border-bottom: 0;
+    padding-left: 0;
+    color:#000;
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+.security-descr p {
+    width: 100%;
+    margin-bottom: 20px;
+    float: left;
+    max-width:400px;
+    font-size: 15px;
+    color:#000;
+}
+.sec-descr-row-one{
+    margin-bottom: 30px;
+}
+.sec-descr-row-two p{
+    margin-top: 30px;
+}
+.security-button{
+    margin-left: 95px;
+}
+@media(max-width:750px){
+    .security-a-button{
+        text-align: center;
+    }
+    .security-button{
+        margin-left: 0px;
+    }
+    .security-descr{
+        margin-bottom: 20px;
+    }
+    .security-a-button{
+        margin-bottom: 50px;
+    }
+    .security-content>h3{
+        text-align: center;
+    }
+}

@@ -1,0 +1,254 @@
+.quest-person>p{
+    font-size: 20px;
+    color: #000;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.quest-person-photo{
+    margin-right: 15px;
+    float: left;
+    display: inline-block;
+}
+.quest-person-info a{
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+.quest-person-info p{
+    margin-bottom: 5px;
+}
+.quest-person{
+    padding-left: 40px;
+}
+.often-asked{
+    margin-top: 40px;
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.tech-support{
+    color: #858585;
+}
+.wantWork a:before{  
+    background:none;
+}
+.how-servis-works a:before{
+    content: "";
+    width: 82px;
+    height: 41px;
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    margin-top: -20px;
+    background: url(../../img/sprite-task.png) -25px 0 no-repeat;
+}
+.how-servis-works a{
+    padding: 15px 15px 15px 100px;
+}
+.random-reviews{
+    color: #949494!important;
+    padding-left: 40px;
+}
+.random-reviews>p{
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+.rand-name{
+    margin-bottom: 3px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.rand-review-text{
+    margin: 0;
+    font-size: 12px;
+}
+.rand-review i{
+    font-size: 12px;
+}
+p.makerOnline span {
+    padding: 0 10px;
+    font-size: 12px;
+    color: #7b7b7b;
+    border-right: 1px solid;
+}
+p.makerOnline span:last-child {
+    border-right: 0;
+}
+.categoryNameService{
+    margin-top: 20px;
+}
+.want-link:before{
+    content: "";
+    width: 22px;
+    margin-top: 5px;
+    height: 15px;
+    display: inline-block;
+    background: url(../../img/sprite-task.png) 0 -15px no-repeat;
+}
+.want-link {
+    margin-left: 50px;
+    border-bottom: 1px dotted;
+}
+.want-such-quest{
+    margin: 50px 0;
+    text-align: center;
+}
+.want-such-quest>p{
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+.qwests-hid{
+    margin-bottom: 10px;
+    font-size: 23px;
+    line-height: 25px;
+}
+.quests-hide {
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+.quest-person-photo-little{
+    margin-right: 15px;
+    margin-bottom: 20px;
+    float: left;
+    display: inline-block;
+}
+.quest-person-info-little p{
+    margin-bottom: 3px;
+    font-size: 13px;
+}
+.quest-person-info-little span{
+    margin-bottom: 3px;
+    color:#b9b9b9;
+    font-size: 13px;
+}
+.quest-person-info-little a{
+    font-size: 15px;
+}
+.quest-person-comment{
+    color:#000;
+}
+.same-quests {
+    margin-top: 40px;
+}
+.same-quests ul li{
+    margin-bottom: 18px;
+    font-size: 13px;
+    line-height: 21px;
+}
+.same-quests ul li a,
+.same-quests ul li p span{
+    font-size: 15px;
+    color:#000;
+}
+.same-quests ul li a{
+    text-decoration: underline;
+}
+.same-quests ul li p span{
+    float: right;
+}
+.same-quests ul li a:hover{
+    color:#2098D1;
+}
+.same-quests ul li h4{
+    margin: 0;
+}
+.same-quests ul li h4{
+    font-size: 13px;
+    color: #949494;
+}
+.same-quests ul li p{
+    margin-bottom: 5px;
+}
+.randomTaskTitle{
+    color:#535B60;
+}
+.qwest-task{
+    margin-top: 40px;
+    padding-left: 0;
+}
+.quest-info-left{
+    font-weight: bold;
+    float: left;
+    width: 110px;
+    margin-left: 40px;
+}
+.quest-info-right{
+    margin-right: 50px;
+    padding-left: 150px;
+    word-wrap: break-word;
+}
+.quest-info-right img{
+    display: block;
+}
+.quest-info ul li{
+    margin: 20px 0;
+}
+.ot{
+    color: #E6183D;
+    margin-right: 3px;
+    font-weight: bold;
+}
+.do{
+    color: #80BE37;
+    font-weight: bold;
+    margin-right: 3px;
+}
+@media(max-width:1152px){
+    .quest-person-photo {
+        margin-right:0;
+        float: none;
+    }
+    .quest-person{
+        padding-left: 0;
+        text-align: center;
+    }
+}
+@media(max-width:750px){
+    .commentServicePrice{
+        top: 0;
+    }
+    p.makerOnline span {
+        display: block;
+        border-right: 0;
+    }
+    .service-content{
+        padding: 0;
+    }
+    .qwest-contentP{
+        padding: 0;
+    }
+    .randomTask,
+    .often-asked{
+    text-align: left;
+    }
+    .often-asked{
+        padding-left: 40px;
+    }
+    .quest-info-left {
+        margin-left: 10px;
+        width: auto;
+    }
+    .quest-info-right{
+        padding-left: 110px;
+        margin-right: 5px;
+    }
+    .want-quest-button a{
+        display: block;
+        margin: 0;
+        margin-bottom: 10px;
+        
+    }
+    .want-link{
+        border-bottom: 0;
+    }
+    .want-quest-button{
+        text-align: center;
+    }
+}
+@media(max-width:450px){
+    .quest-info-right {
+        padding-left: 60px;
+    }
+    .quest-info-left p{
+        margin-bottom: 0;
+    }

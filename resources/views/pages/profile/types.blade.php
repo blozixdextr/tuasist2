@@ -1,4 +1,4 @@
-@extends('layouts.regsiter')
+@extends('layouts.inside')
 
 @section('content')
     <div id="registerFormWrap" style="max-width: 600px; margin: 0 auto">

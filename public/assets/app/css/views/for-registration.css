@@ -1,0 +1,155 @@
+#localeSwitcher a,
+.checkbox a{
+    color:#2098D1;
+}
+
+.firstRegisterLabel{
+    margin-right: 40px !important;
+}
+#localeSwitcher {
+    display: block;
+    padding-right: 25px;
+    margin: 10px 50px 0 0;
+    float: right;
+    background-color: #fff;
+    border-radius: 5px;
+}
+#localeSwitcher form>div{
+    display: inline-block;
+}
+#localeSwitcher input[type=radio] {
+    margin: 5px 5px 0;
+}
+#localeSwitcher a.active {
+    font-weight: bold;
+}
+
+#localeSwitcher a{
+    display: inline-block;
+    vertical-align: top;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.form-group.fa-iconed i.fa {
+    float: left;
+    margin: 0 -25px 0 5px;
+    line-height: 34px;
+    color: #ccc;
+}
+
+.form-group.fa-iconed .form-control {
+    padding-left: 25px;
+}
+.hoffman {
+    background-image: url(../../img/tweed.png);
+    background-repeat: repeat;
+}
+h1.hoffman{
+    margin: 0 0 20px;
+    color:#fff;
+    padding:40px 0;
+}
+#registerFormWrap .fa{
+    color:#2098D1;
+}
+
+.regButtons input,
+.regButtons a{
+    padding: 10px 20px;
+    color: #000;
+    font-size: 16px;
+    background: inherit;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 2px solid #2098D1;
+}
+input.form-control,
+select.form-control{
+    max-width: 375px;
+}
+#userTypePersonal,
+#userTypeCompany{
+   top: 8px;
+    position: absolute;
+}
+.userTypeCompany,
+.userTypePeronal{
+    position: relative;
+}
+
+.regSlider {
+    margin: 42px 0 0 0;
+}
+.regButtons p{
+    display: inline-block;
+}
+#registerFormWrap{
+    max-width: 600px;
+    padding: 30px;
+    margin: 0 auto;
+}
+.contForReg{
+    max-width: 810px !important;
+}
+.header-shadow.headerReg .logo-wrapper {
+    margin: 10px 0 0 30px;
+}
+
+#error-msg, #valid-msg {
+    display: none;
+    padding: 5px;
+}
+
+@media(max-width:720px){
+    .containerReg .mainMenu{
+        margin-top: 20px;
+    }
+    #localeSwitcher {
+        float:none;
+        display: inline-block;
+        margin: 15px 0 0 0;
+    }
+    .headerReg{
+        text-align: center;
+    }
+    .regButtons{
+        text-align: center;
+    }
+    .regButtons>div p{
+        display:block;
+        margin-top: 10px;
+    }
+}
+@media(max-width:800px){
+    .headerReg .mainMenu {
+    margin: 24px 0 0 25px;
+    }
+    #localeSwitcher {
+    margin: 10px 10px 0 0;
+    }
+}
+
+@media(max-width:450px){
+    .userTypeCompany input{
+        
+    }
+    .radio .firstRegisterLabel{
+        display: block;
+    }
+    .radio #userTypeCompany{
+        top: 32px;
+    }
+    .header-shadow.headerReg .logo-wrapper {
+        margin: 0 auto;
+    }
+    .headerReg .mainMenu {
+        margin: 24px auto 0;
+    }
+    #registerFormWrap{
+        margin-top: 15px;
+    }
+}
+

@@ -1,4 +1,4 @@
-@extends('layouts.regsiter')
+@extends('layouts.inside')
 
 @section('content')
     <div class="page-header">

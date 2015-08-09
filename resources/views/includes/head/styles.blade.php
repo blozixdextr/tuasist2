@@ -1,16 +1,13 @@
-<link href='http://fonts.googleapis.com/css?family=Hind:400,700' rel='stylesheet' type='text/css'>
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Crete+Round:400,400italic" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" >
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel="stylesheet" >
+<link href='http://fonts.googleapis.com/css?family=Crete+Round:400,400italic' rel="stylesheet" >
 
-<link href="/assets/app/css/hover.css" rel="stylesheet" media="all">
-<link rel="stylesheet" href="/assets/app/css/animate.css">
-<link rel="stylesheet" href="/assets/app/css/cssforlanding.css">
-<link rel="stylesheet" href="/assets/app/css/bootstrap.min.css">
-<link rel="stylesheet" href="/assets/app/css/icomoon-social.css">
-
-<link rel="stylesheet" href="/assets/app/css/leaflet.css" />
+<link href="/assets/libs/hover.css" rel="stylesheet" media="all">
+<link href="/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!--[if lte IE 8]>
-<link rel="stylesheet" href="/assets/app/css/leaflet.ie.css" />
+<link rel="stylesheet" href="/assets/libs/leaflet/leaflet.ie.css" />
 <![endif]-->
-<link rel="stylesheet" href="/assets/app/css/main.css">
+
+<link rel="stylesheet" href="/assets/app/css/shared/main.css">
+
+

@@ -15,7 +15,15 @@
     @yield('head-js')
 </head>
 <body>
-    @yield('content')
+    @include('includes.header')
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                @yield('content')
+            </div>
+        </div>
+    </div>
+    @include('includes.footer')
     @include('includes.bodyend')
     @yield('body-js')
 </body>

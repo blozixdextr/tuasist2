@@ -1,7 +1,11 @@
-@extends('layouts.register')
+@extends('layouts.inside')
+
+@section('head-style')
+    <link rel="stylesheet" href="/assets/app/css/views/for-login.css">
+@endsection
 
 @section('content')
-    <div id="registerFormWrap" style="max-width: 600px; margin: 0 auto">
+    <div id="loginFormWrap" class="allPagesContent">
         <h1>{!! trans('auth.title') !!}</h1>
         @include('includes.errors')
         {!! Form::open(['url' => '/auth/login', 'method' => 'post', 'class' => 'form-horizontal', 'id' => 'registerForm']) !!}
@@ -31,10 +35,10 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group regButtons">
             <div class="col-sm-offset-3 col-sm-9">
-                {!! Form::submit(trans('auth.submit'), ['class' => 'btn btn-success btn-lg']) !!}
-                {{ trans('general.or') }} <a href="/auth/facebook" class="btn btn-primary"><i class="fa fa-facebook"></i> {{ trans('auth.facebook.login') }}</a>
+                {!! Form::submit(trans('auth.submit'), ['class' => 'hvr-fade']) !!}
+                {{ trans('general.or') }} <a href="/auth/facebook" class="hvr-fade archiv">{{ trans('auth.facebook.login') }}</a>
             </div>
         </div>
         <div class="form-group">
