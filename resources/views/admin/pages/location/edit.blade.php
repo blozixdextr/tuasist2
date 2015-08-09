@@ -1,7 +1,7 @@
 <?php
 
 $pids = ['0' => 'Select parent'];
-foreach ($roots as $r) {
+foreach ($parents as $r) {
     $pids[$r->id] = $r->title;
 }
 
@@ -14,20 +14,19 @@ foreach ($roots as $r) {
 
 <section class="content-header">
     <h1>
-        Edit Category
+        Edit Location
     </h1>
     <ol class="breadcrumb">
-        <li><a href="/admin/category"><i class="fa fa-dashboard"></i> Categories</a></li>
+        <li><a href="/admin/location"><i class="fa fa-dashboard"></i> Locations</a></li>
         <li class="active">Edit</li>
     </ol>
 </section>
 
-{!! Form::model($category, array('url' => '/admin/category/update/'.$category->id, 'files' => true)) !!}
+{!! Form::model($location, array('url' => '/admin/location/update/'.$location->id)) !!}
 
     <div class="form-group">
         {!! Form::label('title', 'Title:') !!}
-        {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Category name', 'required' => 'required', 'readonly' => 'readonly']) !!}
-        <div class="alert alert-info" role="alert">use language file for renaming, url and seo</div>
+        {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Location name', 'required' => 'required']) !!}
     </div>
 
     <div class="form-group">
@@ -39,27 +38,7 @@ foreach ($roots as $r) {
 
     <div class="form-group">
         {!! Form::label('subtitle', 'Description:') !!}
-        {!! Form::textarea('subtitle', null, ['class' => 'form-control', 'placeholder' => 'Describe category', 'style' => 'height:100px;']) !!}
-    </div>
-
-    @if ($category->icon)
-        <div class="form-group">
-            <img src="{{ \App\Models\Mappers\CategoryMapper::getIconSrc($category) }}">
-        </div>
-    @endif
-    <div class="form-group">
-        {!! Form::label('icon', 'Icon:') !!}
-        {!! Form::file('icon',['class' => 'form-control', 'placeholder' => 'Icon for category', 'accept' => 'image/*']) !!}
-    </div>
-
-    @if ($category->image)
-        <div class="form-group">
-            <img src="{{ \App\Models\Mappers\CategoryMapper::getImageSrc($category) }}">
-        </div>
-    @endif
-    <div class="form-group">
-        {!! Form::label('image', 'Image:') !!}
-        {!! Form::file('image', ['class' => 'form-control', 'placeholder' => 'Image for category', 'accept' => 'image/*']) !!}
+        {!! Form::textarea('subtitle', null, ['class' => 'form-control', 'placeholder' => 'Describe location', 'style' => 'height:100px;']) !!}
     </div>
 
     <div class="form-group">

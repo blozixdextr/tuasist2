@@ -20,6 +20,7 @@ class CategoryController extends Controller
             $category = Category::findOrFail($pid);
             $categories = $category->children;
         }
+
         return view('admin.pages.category.list', compact('categories', 'category'));
     }
 
@@ -75,6 +76,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $roots = Category::roots()->get();
+
         return view('admin.pages.category.edit', compact('category', 'roots'));
     }
 
@@ -115,12 +117,14 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
+
         return Redirect::back();
     }
 
     public function show($id)
     {
         $category = Category::findOrFail($id);
+
         return view('admin.pages.category.show', compact('category'));
     }
 }

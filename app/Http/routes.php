@@ -66,3 +66,7 @@ Route::get('/admin/category/destroy/{id}', 'Admin\CategoryController@destroy');
 Route::get('/admin/location', 'Admin\LocationController@index');
 Route::get('/admin/location/show/{id}', 'Admin\LocationController@show');
 Route::get('/admin/location/edit/{id}', 'Admin\LocationController@edit');
+Route::post('/admin/location/update/{id}', 'Admin\LocationController@update');
+Route::get('/admin/location/create', 'Admin\LocationController@create');
+Route::post('/admin/location/store/{id}', 'Admin\LocationController@store');
+Route::get('/admin/location/destroy/{id}', 'Admin\LocationController@destroy');
