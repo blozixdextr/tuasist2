@@ -9,6 +9,7 @@ return [
     'accept' => 'accept',
     'login' => 'login',
     'register' => 'register',
+    'rights_reserved' => 'All rights reserved',
 
     'site' => [
         'name' => 'Tuasist English Global',

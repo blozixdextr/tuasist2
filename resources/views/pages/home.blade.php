@@ -22,8 +22,8 @@
                            @if (Auth::user())
                               welcome, <a href="/profile">{{ Auth::user()->name }}</a> <a class="loginn hvr-fade" href="/auth/logout">Logout</a>
                            @else
-                              <a class="loginn hvr-fade" href="/auth/login">Login</a>
-                              <a class="registerr hvr-fade" href="/register">Register</a>
+                              <a class="loginn hvr-fade" href="/auth/login">{{ trans('general.login') }}</a>
+                              <a class="registerr hvr-fade" href="/register">{{ trans('general.register') }}</a>
                            @endif
                         </div>
 
@@ -32,19 +32,20 @@
                   <div class="row">
                      <div class="col-md-12">
                         <div class="titleText">
-                           <h1>Get Stuff Done.</h1>
-                           <h3>Request <span>trusted & affordable</span> help and get back to things that matter the most.</h3>
+                           <h1>{!! trans('home.slogan')  !!}.</h1>
+                           <h3>{!! trans('home.subslogan')  !!}</h3>
                         </div>
                      </div>
                      <div class="col-md-6 buttons">
                         <div class="calltoaction-wrapper">
-                           <h3>Want earn money?</h3> <a href="/register/tasker" class="hvr-fade"><i class="fa fa-money"></i> Become a Tasker - <i>It's free</i></a>
-
+                           <h3>{!! trans('home.invite.tasker.title') !!}</h3>
+                           <a href="/register/tasker" class="hvr-fade"><i class="fa fa-money"></i> {!! trans('home.invite.tasker.link') !!}</a>
                         </div>
                      </div>
                      <div class="col-md-6 buttons">
                         <div class="calltoaction-wrapper">
-                           <h3>Ready to live smarter?</h3> <a href="/register/client" class="hvr-fade"><i class="fa fa-print"></i> Post Your Task - <i>It's free</i></a>
+                           <h3>{!! trans('home.invite.client.title') !!}</h3>
+                           <a href="/register/client" class="hvr-fade"><i class="fa fa-print"></i> {!! trans('home.invite.client.link') !!}</a>
                         </div>
                      </div>
                   </div>
@@ -66,25 +67,22 @@
                   <div class="col-md-4 col-sm-6">
                      <div class="service-wrapper">
                         <img src="/assets/app/img/service-icon/1.png" alt="Service 1">
-                        <h3>Fast</h3>
-                        <p>Describe your task and get offers from taskers in 2-3 minutes.</p>
-
+                        <h3>{!! trans('home.feature.fast.title') !!}</h3>
+                        <p>{!! trans('home.feature.fast.subtitle') !!}</p>
                      </div>
                   </div>
                   <div class="col-md-4 col-sm-6">
                      <div class="service-wrapper">
                         <img src="/assets/app/img/service-icon/2.png" alt="Service 2">
-                        <h3>Safe</h3>
-                        <p>We provide Verified taskers. Read real reviews of these taskers.</p>
-
+                        <h3>{!! trans('home.feature.safe.title') !!}</h3>
+                        <p>{!! trans('home.feature.safe.subtitle') !!}</p>
                      </div>
                   </div>
                   <div class="col-md-4 col-sm-6">
                      <div class="service-wrapper">
                         <img src="/assets/app/img/service-icon/3.png" alt="Service 3">
-                        <h3>Profitably</h3>
-                        <p>Save up to 50% on standart services. Don't waste your money.</p>
-
+                        <h3>{!! trans('home.feature.profitably.title') !!}</h3>
+                        <p>{!! trans('home.feature.profitably.subtitle') !!}</p>
                      </div>
                   </div>
                </div>
@@ -99,9 +97,9 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="calltoaction-wrapper">
-                        <h3>We connects you with rated, reviewed and verified local service providers, or Taskers in our lingo. Our Taskers are dedicated to completing your daily errands, allowing you to focus less on your to-do list and more on life.</h3>
-                        <h3>Túasist.es is currently active in Malaga province</h3> <a href=/register" class="hvr-fade loginn">Join for
-                           <em>free</em></a>
+                        <h3>{!! trans('home.about.title') !!}</h3>
+                        <h3>{!! trans('home.about.limitation') !!}</h3>
+                        <a href=/register" class="hvr-fade loginn">{!! trans('home.about.link') !!}</a>
                      </div>
                   </div>
                </div>
@@ -115,23 +113,20 @@
             <div class="container mainBlocks">
                <div class="row">
                   <div class="col-md-12">
-                     <center><h1>How <i>túasist.es</i> works</h1>
+                     <center>
+                        <h1>{!! trans('home.how_works.title') !!}</h1>
                      </center>
                   </div>
                </div>
                <div class="row mainContent_1">
                   <div class="col-lg-12">
                      <div class="col-lg-6">
-                        <div class="service-image-1">
-                        </div>
+                        <div class="service-image-1"></div>
                      </div>
                      <div class="col-lg-6 main_padding">
-
                         <i class="fa fa-male"></i> <i class="fa fa-commenting-o"></i>
-                        <h3>You tell us about the work you need completed.</h3>
-                        <p>
-                           The more we know about the size and scope of your job, the more accurately we can find the right pros for the work.
-                        </p>
+                        <h3>{!! trans('home.how_works.step1.title') !!}</h3>
+                        <p>{!! trans('home.how_works.step1.subtitle') !!}</p>
                      </div>
                   </div>
                </div>
@@ -140,29 +135,20 @@
                   <div class="col-lg-12">
                      <div class="col-lg-6 hidden-xs hidden-md hidden-sm main_padding">
                         <i class="fa fa-male" ></i><i class="fa fa-female"></i>
-                        <h3>We match you with the right pros for the job.</h3>
-                        <p>
-                           We match you with background-checked pros whose expertise is just right for your request. Their responses go directly to your inbox.
-                        </p>
+                        <h3>{!! trans('home.how_works.step2.title') !!}</h3>
+                        <p>{!! trans('home.how_works.step2.subtitle') !!}</p>
                      </div>
                      <div class="col-lg-6 hidden-xs hidden-md hidden-sm">
-                        <div class="service-image-2">
-                        </div>
+                        <div class="service-image-2"></div>
                      </div>
-
                      <div class="col-md-12 hidden-lg">
                         <div class="service-image-2">
                         </div>
                      </div>
                      <div class="col-md-12 hidden-lg main_padding">
-
-                        <h3>We match you with the right pros for the job.</h3>
-                        <p>
-                           We match you with background-checked pros whose expertise is just right for your request. Their responses go directly to your inbox.
-                        </p>
+                        <h3>{!! trans('home.how_works.step2.title') !!}</h3>
+                        <p>{!! trans('home.how_works.step2.subtitle') !!}</p>
                      </div>
-
-
                   </div>
                </div>
                <div class="row mainContent_3">
@@ -173,10 +159,8 @@
                      </div>
                      <div class="col-lg-6 main_padding">
                         <i class="fa fa-users" ></i><i class="fa fa-hand-pointer-o" ></i>
-                        <h3>You select the tasker that works best for you.</h3>
-                        <p>
-                           Read their reviews. Ask them questions. Decide if the price is within your budget. You own the selection of the right tasker for your home's needs.
-                        </p>
+                        <h3>{!! trans('home.how_works.step3.title') !!}</h3>
+                        <p>{!! trans('home.how_works.step3.subtitle') !!}</p>
                      </div>
                   </div>
                </div>
@@ -184,10 +168,8 @@
                   <div class="col-lg-12">
                      <div class="col-lg-6 hidden-xs hidden-md hidden-sm main_padding">
                         <i class="fa fa-wrench" ></i> <i class="fa fa-check-square-o" ></i>
-                        <h3>Your tasker completes the work.</h3>
-                        <p>
-                           We match you with verified taskers whose expertise is just right for your request. Their responses go directly to your inbox.
-                        </p>
+                        <h3>{!! trans('home.how_works.step4.title') !!}</h3>
+                        <p>{!! trans('home.how_works.step4.subtitle') !!}</p>
                      </div>
                      <div class="col-lg-6 hidden-xs hidden-md hidden-sm">
                         <div class="service-image-4">
@@ -198,10 +180,8 @@
                         </div>
                      </div>
                      <div class="col-md-12 hidden-lg main_padding">
-                        <h3>Your tasker completes the work.</h3>
-                        <p>
-                           We match you with verified taskers whose expertise is just right for your request. Their responses go directly to your inbox.
-                        </p>
+                        <h3>{!! trans('home.how_works.step4.title') !!}</h3>
+                        <p>{!! trans('home.how_works.step4.subtitle') !!}</p>
                      </div>
                   </div>
                </div>
@@ -215,7 +195,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-md-12">
-                     <div class="footer-copyright">&copy; túasist.es 2015 All rights reserved.</div>
+                     <div class="footer-copyright">&copy; túasist.es 2015 {{ trans('general.rights_reserved') }}.</div>
                   </div>
                </div>
             </div>
