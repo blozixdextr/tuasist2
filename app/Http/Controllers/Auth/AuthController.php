@@ -165,6 +165,12 @@ class AuthController extends Controller
         return redirect($this->redirectPath);
     }
 
+    public function getRegisterClient()
+    {
+        return redirect('/task/create');
+    }
+
+
     public function facebook()
     {
         $userType = Input::get('user_type');

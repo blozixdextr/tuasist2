@@ -13,6 +13,10 @@ use App\Models\User;
 class IndexController extends Controller
 {
 
+    public function __construct() {
+       // dd('sdf');
+    }
+
     public function index()
     {
         return view('pages.home');

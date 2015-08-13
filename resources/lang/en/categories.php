@@ -9,6 +9,15 @@ return [
             'keywords' => 'head, meta, keywords',
         ]
     ],
+    'courier service sub example' => [
+        'title' => 'courier service sub example',
+        'url' => 'courier-service-sub-example',
+        'seo' => [
+            'title' => 'head title',
+            'description' => 'head meta description',
+            'keywords' => 'head, meta, keywords',
+        ]
+    ],
     'handyman' => [
         'title' => 'handyman',
         'url' => 'handyman',

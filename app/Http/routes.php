@@ -35,15 +35,31 @@ Route::get('auth/facebook/callback', 'Auth\AuthController@facebookCallback');
 // Registration routes...
 Route::get('register', 'IndexController@register');
 Route::get('register/tasker', 'Auth\AuthController@getRegisterTasker');
-//Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('register/tasker', 'Auth\AuthController@postRegisterTasker');
+Route::get('register/client', 'Auth\AuthController@getRegisterClient');
+//Route::post('register/client', 'Auth\AuthController@postRegisterClient');
 
+// task client
+Route::get('category/sub/{category}/{format?}', 'CategoryController@subCategory');
+Route::get('c/{categoryUrl}/{category}', 'TaskController@category');
+Route::get('task/create/{category?}', 'TaskController@create');
+Route::post('task/store', 'TaskController@store');
+Route::get('task/bid/{bidId}/accept', 'TaskController@bidAccept');
+Route::get('task/bid/{bidId}/decline', 'TaskController@bidDecline');
+Route::get('task/{taskId}/pay', 'TaskController@pay');
+Route::get('task/{taskId}/close', 'TaskController@close');
+Route::get('task/{taskId}/done', 'TaskController@close');
+// task tasker
+Route::post('task/{taskId}/refund', 'TaskController@refund');
+Route::post('task/{taskId}/bid', 'TaskController@bid');
+Route::post('task/bid/{bidId}/deal', 'TaskController@bidDeal');
+// comments
+Route::get('task/bid/{bidId}/comments', 'TaskController@bidComments');
+Route::post('task/bid/{bidId}/comment', 'TaskController@bidComment');
+Route::get('task/{taskId}/comments', 'TaskController@comments');
+Route::post('task/{taskId}/comment', 'TaskController@comment');
 
-
-
-
-
-Route::get('/test', 'TestController@test');
+//Route::get('/test', 'TestController@test');
 Route::get('paypal/test', 'PaypalController@test');
 Route::get('payment/paypal/callback/success/{taskId}', 'PaypalController@success');
 Route::get('payment/paypal/callback/fail/{taskId}', 'PaypalController@fail');

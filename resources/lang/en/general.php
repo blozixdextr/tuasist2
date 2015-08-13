@@ -10,6 +10,7 @@ return [
     'login' => 'login',
     'register' => 'register',
     'rights_reserved' => 'All rights reserved',
+    'other' => 'other',
 
     'site' => [
         'name' => 'Tuasist English Global',

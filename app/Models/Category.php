@@ -10,6 +10,8 @@ class Category extends Model
 
     protected $fillable = ['pid', 'icon', 'image', 'title', 'subtitle', 'type'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     const iconDir = 'uploads/categories/icon';
 
     const imageDir = 'uploads/categories/image';
