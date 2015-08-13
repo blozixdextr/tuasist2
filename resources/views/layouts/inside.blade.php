@@ -16,6 +16,7 @@
 </head>
 <body>
     @include('includes.header')
+    @yield('pre-content')
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -23,6 +24,7 @@
             </div>
         </div>
     </div>
+    @yield('pre-footer')
     @include('includes.footer')
     @include('includes.bodyend')
     @yield('body-js')

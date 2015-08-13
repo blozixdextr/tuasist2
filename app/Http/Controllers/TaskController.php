@@ -15,7 +15,7 @@ class TaskController extends Controller
 
     public function index()
     {
-        return view('pages.home');
+
     }
 
     public function isInitiator($task, $user) {
@@ -36,7 +36,7 @@ class TaskController extends Controller
 
     public function create()
     {
-
+        return view('pages.task.create');
     }
 
 }
