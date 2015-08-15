@@ -55,7 +55,7 @@ foreach ($locations as $c) {
         <div class="col-lg-8 col-lg-push-4 application-form">
             <div class="form-in">
                 @include('includes.errors')
-                {!! Form::open(['url' => '/task/store', 'method' => 'post', 'id' => 'taskCreateForm']) !!}
+                {!! Form::open(['url' => '/task/store', 'method' => 'post', 'id' => 'taskCreateForm', 'files' => true]) !!}
                     <h2>{{ trans('task.create.form_title') }}</h2>
                     <div class="choose-category">
                         <p class="beu">{{ trans('task.create.category.label') }}</p>

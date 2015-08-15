@@ -12,6 +12,8 @@ class Controller extends BaseController
 {
     use DispatchesJobs, ValidatesRequests;
 
+    public $user;
+
     public function __construct()
     {
         $this->middleware('auth');

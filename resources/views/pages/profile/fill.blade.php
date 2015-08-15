@@ -1,4 +1,4 @@
-@extends('layouts.register')
+@extends('layouts.inside')
 
 @section('head-js')
     <script type="text/javascript" src="/assets/libs/jquery/jquery.cropit.js"></script>

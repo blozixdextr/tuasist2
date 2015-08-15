@@ -48,6 +48,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany(Photo::class);
     }
 
+    public function tasks()
+    {
+        return $this->hasMany(Tasks::class);
+    }
+
     public function notifications()
     {
         return $this->hasMany(Notification::class);

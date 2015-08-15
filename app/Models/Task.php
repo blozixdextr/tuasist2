@@ -13,8 +13,19 @@ class Task extends Model
 
     protected $dates = ['event_date'];
 
+    const photoDir = 'uploads/tasks/photo';
+
     public function comments()
     {
         return $this->morphMany('App\Model\Comment', 'commentable');
+    }
+
+    public function views()
+    {
+        return $this->morphMany('App\Model\View', 'viewable');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }

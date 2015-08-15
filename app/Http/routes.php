@@ -39,16 +39,21 @@ Route::post('register/tasker', 'Auth\AuthController@postRegisterTasker');
 Route::get('register/client', 'Auth\AuthController@getRegisterClient');
 //Route::post('register/client', 'Auth\AuthController@postRegisterClient');
 
-// task client
+
 Route::get('category/sub/{category}/{format?}', 'CategoryController@subCategory');
 Route::get('c/{categoryUrl}/{category}', 'TaskController@category');
+// task client
 Route::get('task/create/{category?}', 'TaskController@create');
 Route::post('task/store', 'TaskController@store');
 Route::get('task/bid/{bidId}/accept', 'TaskController@bidAccept');
 Route::get('task/bid/{bidId}/decline', 'TaskController@bidDecline');
 Route::get('task/{taskId}/pay', 'TaskController@pay');
 Route::get('task/{taskId}/close', 'TaskController@close');
-Route::get('task/{taskId}/done', 'TaskController@close');
+Route::get('task/{taskId}/done', 'TaskController@done');
+Route::get('task/edit/{taskId}', 'TaskController@edit');
+Route::post('task/update/{taskId}', 'TaskController@update');
+Route::get('task/destroy/{taskId}', 'TaskController@destroy');
+Route::get('task/show/{taskId}', 'TaskController@show');
 // task tasker
 Route::post('task/{taskId}/refund', 'TaskController@refund');
 Route::post('task/{taskId}/bid', 'TaskController@bid');
