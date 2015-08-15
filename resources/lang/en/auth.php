@@ -19,6 +19,7 @@ return [
     'submit' => 'Login',
     'register_now' => 'Register Now!',
     'no_account' => 'Have no account?',
+    'have_account' => 'Already registered?',
     'remember_me' => [
         'label' => 'Remember Me'
     ],

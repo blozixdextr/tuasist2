@@ -11,6 +11,7 @@ return [
     'register' => 'register',
     'rights_reserved' => 'All rights reserved',
     'other' => 'other',
+    'publish' => 'publish',
 
     'site' => [
         'name' => 'Tuasist English Global',

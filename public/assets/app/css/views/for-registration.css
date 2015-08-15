@@ -103,6 +103,11 @@ select.form-control{
     padding: 5px;
 }
 
+#registerFormWrap {
+    margin-top: 0;
+}
+
+
 @media(max-width:720px){
     .containerReg .mainMenu{
         margin-top: 20px;

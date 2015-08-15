@@ -85,20 +85,22 @@
     color:#000;
     font: 700 40px/45px "Open Sans Condensed";
 }
-.choose-category select{
+select.greyed {
     margin-right: 20px;
     width: 182px;
     outline:none;
     padding: 4px 10px;
     background-image:-webkit-linear-gradient(bottom,#E1E1E1,#F4F4F4);
-    height: 31px;
+    height: 34px;
     border:1px solid #DBDBDB;
     border-radius:5px;
+    font-size: 15px;
+    display: inline-block;
 }
-.choose-category select:hover{
+select.greyed:hover{
     background-image:-webkit-linear-gradient(bottom,#F4F4F4,#E1E1E1);
 }
-.choose-category select:last-child{
+select.greyed:last-child{
     margin-right: 0px;
 }
 .choose-category p{
@@ -155,16 +157,15 @@
 }
 .choose-file span{
     font-size: 12px;
-    padding-left: 185px;
-        position: relative;
-    top: -59px;
-    display: block;
+    padding-left: 100px;
+    margin-top: 2px;
+    float: left;
 }
-.choose-file a{
-    display: inline;
+.choose-file a {
+    float: left;
 }
 .choose-file{
-    position: relative;
+    height: 80px;
 }
 .thing-weight p{
     margin-right: 15px;
@@ -204,7 +205,7 @@ box-shadow: inset 0px 1px 6px 0px rgba(0,0,0,0.75);
     width: 510px;
     margin: 0 auto;
 }
-.point-date input{
+.point-date input {
     width: 49%;
     max-width: 202px;
     display: inline;
@@ -212,19 +213,25 @@ box-shadow: inset 0px 1px 6px 0px rgba(0,0,0,0.75);
     margin-bottom: 40px;
     border: 1px solid #2098D1;
     min-width: 200px;
-    padding: 6px 10px;
+    padding: 0 10px;
+    line-height: 30px;
 }
-.point-addres input{
+.point-addres input {
     max-width: 504px;
-    min-width:300px;
-    width: 100%;
-    display: inline;
+    min-width: 180px;
+    width: 55%;
+    display: inline-block;
     border-radius: 5px;
-    margin-bottom: 10px;
     border: 1px solid #2098D1;
     min-width: 200px;
     padding: 6px 10px;
 }
+.point-addres select {
+    max-width: 504px;
+    min-width: 180px;
+    width: 40%;
+}
+
 .point-addres a,
 .point-documents a{
     text-decoration: none;
@@ -252,7 +259,7 @@ box-shadow: inset 0px 1px 6px 0px rgba(0,0,0,0.75);
     border-radius: 5px;
     width: 60px;
     border: 1px solid #2098D1;
-    padding: 6px 10px;
+    padding: 4px 10px;
 }
 .point-price label a{
     margin-left: 80px;

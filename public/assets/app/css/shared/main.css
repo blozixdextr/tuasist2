@@ -3440,6 +3440,10 @@ color: #77b296;
     transition-property: color, background-color;
 }
 
+#error-msg, #valid-msg {
+  display: none;
+  padding: 5px;
+}
 
 @media(max-width:1152px)and(min-width:992px){
     .tasksLeftService .randomTask{

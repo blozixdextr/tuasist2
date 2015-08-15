@@ -3,15 +3,6 @@
 @section('head-style')
     <link rel="stylesheet" href="/assets/libs/tel-input/css/intlTelInput.css">
     <link rel="stylesheet" href="/assets/app/css/views/for-registration.css">
-    <style>
-        #error-msg, #valid-msg {
-            display: none;
-            padding: 5px;
-        }
-        #registerFormWrap {
-            margin-top: 0;
-        }
-    </style>
 @endsection
 
 @section('head-js')

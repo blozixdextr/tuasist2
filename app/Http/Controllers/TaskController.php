@@ -9,6 +9,8 @@ use Auth;
 use Redirect;
 use Session;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Location;
 
 class TaskController extends Controller
 {
@@ -34,9 +36,19 @@ class TaskController extends Controller
 
     }
 
-    public function create()
+    public function create($category = 0)
     {
-        return view('pages.task.create');
+        $category = intval($category);
+        if ($category > 0) {
+            $category = Category::findOrFail($category);
+        }
+        $categories = Category::roots()->get();
+        $user = Auth::user();
+        $states = Location::states()->first();
+        $regions = $states->children()->first();
+        $locations = $regions->children;
+
+        return view('pages.task.create', compact('category', 'categories', 'user', 'locations'));
     }
 
 }
