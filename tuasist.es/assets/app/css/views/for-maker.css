@@ -1,0 +1,84 @@
+.makersBlueBlock{
+    position: relative;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #40A5FC;
+    text-align: center;
+}
+.makerCategorys{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: relative;
+    padding: 15px 35px;
+    background-color: #f8f7ee;
+    line-height: 1.8rem;
+    color: #4e4e4e;
+}
+.makersVariant,
+.makersNowOnSite,
+.pointTube{
+    display: inline-block;
+    margin-right: 20px;
+}
+.pointTube{
+    border-bottom:1px dotted #2098D1;
+    float: right;
+    margin-right: 0;
+}
+.pointTube:hover{
+    border-bottom:0;
+}
+.makerFirstLine a{
+    margin-right: 15px;
+    font-size: 26px;
+    border-bottom:1px solid #A0CCFD;
+}
+.makerFirstLine a:hover{
+    border-bottom: 0;
+}
+.makerPrice{
+    font-size: 26px;
+    float: right;
+}
+.makerOnline{
+    color:#AEA9B3;
+    font-size: 13px;
+}
+.makerAboutHimself{
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+.makersBlueBlock{
+    content: "";
+    display: block;
+    width: 100%;
+    box-shadow: 0 0 6px rgba(0,0,0,.5);
+}
+.makersBlueBlock p,
+.makersBlueBlock p a{
+    color:#fff;
+    margin: 0;
+}
+.makersBlueBlock a{
+    border-bottom: 1px solid #fff;
+}
+.makersBlueBlock a:hover{
+    color:#fff;
+    border-bottom: 0;
+}
+.makerGiveTask:hover{
+    color:#fff !important;
+}
+.makerPhoto{
+    text-align: center;
+}
+.makerGiveTask{
+    padding: 8px 20px;
+}
+.makersRealList .row{
+    padding: 20px 10px;
+}
+.makerPhoto p i{
+    color:#2098D1;
+}
