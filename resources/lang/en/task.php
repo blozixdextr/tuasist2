@@ -73,5 +73,24 @@ return [
         ]
 
     ],
+    'show' => [
+        'welcome' => '<p>Tuasist allows you to find reliable taskers in your city.</p><p>Try to create your own task or search for other task to do</p>',
+        'where' => 'where',
+        'when' => 'when',
+        'need' => 'need',
+        'want_the_same' => 'Do you want the same service?',
+        'create_the_same' => 'Create the same service',
+        'share_link' => 'Share link',
+        'how_works' => 'Know<br>how the service works'
+    ],
+    'status' => [
+        'bidding' => 'bidding',
+        'in_progress' => 'in progress',
+        'in_review' => 'in review',
+        'canceled' => 'canceled',
+        'done' => 'done'
+    ],
+    'views' => 'view|views|views',
+    'created' => 'created',
 
 ];

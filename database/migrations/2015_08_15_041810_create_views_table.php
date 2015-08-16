@@ -14,6 +14,8 @@ class CreateViewsTable extends Migration
     {
         Schema::create('views', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('ip', 25)->index('ip')->unsigned()->nullable();
+            $table->integer('user_id')->index('user_id')->unsigned()->nullable();
             $table->integer('viewable_id')->index('viewable_id')->unsigned();
             $table->string('viewable_type')->index('viewable_type');
             $table->timestamps();

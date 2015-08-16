@@ -14,7 +14,9 @@ use App\Models\UserProfile;
 use App\Models\Category;
 use App\Models\Location;
 use App\Models\Mappers\TaskMapper;
+use App\Models\Mappers\ViewMapper;
 use Carbon\Carbon;
+
 
 class TaskController extends Controller
 {
@@ -114,11 +116,14 @@ class TaskController extends Controller
             $this->user = $user;
         }
         $task = new Task([
+            'is_active' => 1,
+            'status' => 'bidding',
             'category_id' => $data['sub_category'],
             'location_id' => $data['location'],
             'title' => $data['title'],
             'subtitle' => $data['subtitle'],
             'address' => $data['address'],
+            'price' => floatval($data['price']),
             'event_date' => new Carbon($data['event_date']),
             'event_time' => $data['event_time'],
             'sms' => isset($data['is_sms']) ? $data['is_sms'] : 0,
@@ -144,7 +149,14 @@ class TaskController extends Controller
     public function show($taskId) {
         $taskId = intval($taskId);
         $task = Task::findOrFail($taskId);
+        if (!$task->is_active) {
+            return redirect('/');
+        }
+        if ($task->taskers_only && !$this->user) {
+            return redirect('/auth/login');
+        }
 
+        ViewMapper::trackTask($task);
         return view('pages.task.show', compact('task'));
     }
 

@@ -18,7 +18,7 @@ class CreateTaskBidsTable extends Migration
             $table->integer('task_id')->index('task_id')->unsigned();
             $table->text('description');
             $table->float('price');
-            $table->enum('status', ['declined', 'accepted', 'waiting'])->index('type')->nullable()->default('waiting');
+            $table->enum('status', ['declined', 'accepted', 'waiting'])->index('status')->nullable()->default('waiting');
             $table->timestamps();
         });
     }

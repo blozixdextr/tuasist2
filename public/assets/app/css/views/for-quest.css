@@ -9,6 +9,10 @@
     float: left;
     display: inline-block;
 }
+.quest-person-photo img {
+    height: 45px;
+}
+
 .quest-person-info a{
     font-size: 21px;
     margin-bottom: 10px;
@@ -40,7 +44,7 @@
     top: 50%;
     left: 7px;
     margin-top: -20px;
-    background: url(../../img/sprite-task.png) -25px 0 no-repeat;
+    background: url(img/sprite-task.png) -25px 0 no-repeat;
 }
 .how-servis-works a{
     padding: 15px 15px 15px 100px;
@@ -83,7 +87,7 @@ p.makerOnline span:last-child {
     margin-top: 5px;
     height: 15px;
     display: inline-block;
-    background: url(../../img/sprite-task.png) 0 -15px no-repeat;
+    background: url(img/sprite-task.png) 0 -15px no-repeat;
 }
 .want-link {
     margin-left: 50px;

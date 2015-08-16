@@ -8,8 +8,8 @@ class Task extends Model
 {
     protected $table = 'tasks';
 
-    protected $fillable = ['category_id', 'location_id', 'title', 'subtitle',
-        'photo', 'address', 'event_date', 'event_time', 'sms', 'email', 'taskers_only', 'comments_public'];
+    protected $fillable = ['is_active', 'status', 'category_id', 'location_id', 'title', 'subtitle',
+        'photo', 'address', 'price', 'event_date', 'event_time', 'sms', 'email', 'taskers_only', 'comments_public'];
 
     protected $dates = ['event_date'];
 
@@ -17,15 +17,25 @@ class Task extends Model
 
     public function comments()
     {
-        return $this->morphMany('App\Model\Comment', 'commentable');
+        return $this->morphMany('App\Models\Comment', 'commentable');
     }
 
     public function views()
     {
-        return $this->morphMany('App\Model\View', 'viewable');
+        return $this->morphMany('App\Models\View', 'viewable');
     }
 
     public function user() {
         return $this->belongsTo(User::class);
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

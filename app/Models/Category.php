@@ -51,4 +51,9 @@ class Category extends Model
         }
         parent::delete();
     }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }

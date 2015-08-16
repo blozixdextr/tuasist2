@@ -14,13 +14,17 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('is_active')->default(1);
+            $table->enum('status', ['bidding', 'in_progress', 'in_review', 'canceled', 'done'])->index('status')->nullable()->default('waiting');
             $table->integer('user_id')->index('user_id')->unsigned();
             $table->integer('category_id')->index('category_id')->unsigned();
             $table->integer('location_id')->index('location_id')->unsigned();
+            $table->integer('bid_id')->nullable()->index('bid_id')->unsigned();
             $table->string('title')->index('title');
             $table->text('subtitle')->nullable();
             $table->string('photo')->nullable();
             $table->string('address')->nullable();
+            $table->float('price')->nullable();
             $table->date('event_date');
             $table->time('event_time')->nullable();
             $table->boolean('sms')->default(0);

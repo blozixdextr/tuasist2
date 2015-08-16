@@ -8,8 +8,12 @@ class View extends Model
 {
     protected $table = 'views';
 
+    protected $fillable = [ 'ip', 'user_id'];
+
     public function viewable()
     {
         return $this->morphTo();
     }
+
+
 }
