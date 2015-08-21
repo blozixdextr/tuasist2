@@ -116,6 +116,9 @@ p.makerOnline span:last-child {
     float: left;
     display: inline-block;
 }
+.quest-person-photo-little img.avatar {
+    height: 40px;
+}
 .quest-person-info-little p{
     margin-bottom: 3px;
     font-size: 13px;

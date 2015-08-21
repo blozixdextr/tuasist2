@@ -10,6 +10,9 @@
                                 <li><a href="/">Home</a></li>
                                 <li><a href="/about">About</a></li>
                                 <li><a href="/contact">Contact</a></li>
+                                @if (Auth::user())
+                                    <li><a href="/task/create">Create task</a></li>
+                                @endif
                             </ul>
                         </div>
                         <div class="links">

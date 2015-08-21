@@ -1,11 +1,11 @@
 <div class="col-lg-12 kategoryService often-asked">
-    <p>Частые вопросы</p>
+    <p>FAQ</p>
     <ul>
-        <li><a href="">Я разместил задание — что дальше?</a></li>
-        <li><a href="">Сколько предложений я получу?</a></li>
-        <li><a href="">Как быстро предложения начнут поступать?</a></li>
-        <li><a href="">Как изменить описание задания, цену, сроки и другие условия?</a></li>
-        <li><a href="">Как связаться с исполнителем?</a></li>
-        <li><a href="">Почему нельзя обмениваться контактами с пользователями YouDo до выбора исполнителя?</a></li>
+        <li><a href="/faq/1">I posted a job - what next?</a></li>
+        <li><a href="/faq/2">How many offers do I get?</a></li>
+        <li><a href="/faq/3">How quickly will offer to do?</a></li>
+        <li><a href="/faq/4">How to change the job description, price, terms and other conditions?</a></li>
+        <li><a href="/faq/5">Contact performer?</a></li>
+        <li><a href="/faq/6">Why can not share contacts with users YouDo to select an artist?</a></li>
     </ul>
 </div>

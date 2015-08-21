@@ -81,7 +81,8 @@ return [
         'want_the_same' => 'Do you want the same service?',
         'create_the_same' => 'Create the same service',
         'share_link' => 'Share link',
-        'how_works' => 'Know<br>how the service works'
+        'how_works' => 'Know<br>how the service works',
+        'client' => 'The Client'
     ],
     'status' => [
         'bidding' => 'bidding',
@@ -92,5 +93,14 @@ return [
     ],
     'views' => 'view|views|views',
     'created' => 'created',
-
+    'bids' => [
+        'hidden' => [
+            'title' => 'Bids are hidden',
+            'description' => 'Only client can see bids',
+        ]
+    ],
+    'comments' => [
+        'title' => 'Comments',
+        'only_confirmed_warning' => 'Only users with <br> <a href="/">confirmed account</a> can leave comments',
+    ],
 ];

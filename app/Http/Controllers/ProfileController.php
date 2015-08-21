@@ -69,7 +69,11 @@ class ProfileController extends Controller
         $user = $this->user;
         $profile = $this->user->profile;
         $city = $profile->city;
-        $region = $city->parent;
+        if ($city) {
+            $region = $city->parent;
+        } else {
+            $region = Location::states()->first()->children()->first();
+        }
         $cities = $region->children;
         $categories = Category::roots()->get();
 

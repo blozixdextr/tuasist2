@@ -93,16 +93,16 @@
                     <div class="row">
                         <div class="col-lg-12 quest-info">
                             <div class="quests-hide">
-                                <p class="qwests-hid">Предложения исполнителей скрыты</p>
-                                <p>Предложения видны только заказчику.</p>
+                                <p class="qwests-hid">{{ trans('task.bids.hidden.title') }}</p>
+                                <p>{{ trans('task.bids.hidden.description') }}.</p>
                             </div>
                             <div class="quests-comments">
-                                <p class="qwests-hid">Комментарии</p>
-                                <p>Писать комментарии и оставлять предложения к заданиям могут только<br> <a href="">пользователи с подтвержденным аккаунтом.</a></p>
+                                <p class="qwests-hid">{{ trans('task.comments.title') }}</p>
+                                <p>{!! trans('task.comments.only_confirmed_warning') !!}.</p>
                                 <ul>
                                     <li>
                                         <div class="quest-person-photo-little">
-                                            <img src="img/tiny-photo.jpg" alt="">
+                                            <img class="img-circle avatar" src="/uploads/avatars/user.jpg" alt="">
                                         </div>
                                         <div class="quest-person-info-little">
                                             <p><a href="/">Руслан С.</a> <span>8 ч. 28 мин. назад</span></p>
@@ -111,7 +111,7 @@
                                     </li>
                                     <li>
                                         <div class="quest-person-photo-little">
-                                            <img src="img/tiny-photo.jpg" alt="">
+                                            <img class="img-circle avatar" src="/uploads/avatars/user.jpg" alt="">
                                         </div>
                                         <div class="quest-person-info-little">
                                             <p><a href="/">Руслан С.</a> <span>8 ч. 28 мин. назад</span></p>
@@ -120,7 +120,7 @@
                                     </li>
                                     <li>
                                         <div class="quest-person-photo-little">
-                                            <img src="img/tiny-photo.jpg" alt="">
+                                            <img class="img-circle avatar" src="/uploads/avatars/user.jpg" alt="">
                                         </div>
                                         <div class="quest-person-info-little">
                                             <p><a href="/">Руслан С.</a> <span>8 ч. 28 мин. назад</span></p>
