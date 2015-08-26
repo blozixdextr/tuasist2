@@ -72,8 +72,17 @@ return [
                 ],
                 'success' => 'You confirmed your email',
                 'error' => 'Failed email confirmation',
-
-
+                'title' => 'Confirm your mail',
+                'description' => 'We sent your email, please follow instructions in it'
+            ],
+            'sms' => [
+                'message' => 'tuasist.es verification code :token',
+                'title' => 'Confirm your mobile number',
+                'description' => 'Verification code has been sent to your mobile :mobile',
+                'label' => 'Verification code',
+                'success' => 'You confirmed your mobile',
+                'error' => 'Wrong mobile confirmation',
+                'fail' => 'Sms gate failed. Retry later',
             ]
         ]
     ]

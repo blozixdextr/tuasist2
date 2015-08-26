@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2015-08-21.
+    * Generated on 2015-08-26.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -40,6 +40,7 @@ namespace PHPSTORM_META {
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
             'image' instanceof \Intervention\Image\ImageManager,
+            'bulksms' instanceof \anlutro\BulkSms\Laravel\BulkSmsService,
             'html' instanceof \Illuminate\Html\HtmlBuilder,
             'form' instanceof \Illuminate\Html\FormBuilder,
             'command.app.name' instanceof \Illuminate\Foundation\Console\AppNameCommand,
@@ -154,6 +155,7 @@ namespace PHPSTORM_META {
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
             'image' instanceof \Intervention\Image\ImageManager,
+            'bulksms' instanceof \anlutro\BulkSms\Laravel\BulkSmsService,
             'html' instanceof \Illuminate\Html\HtmlBuilder,
             'form' instanceof \Illuminate\Html\FormBuilder,
             'command.app.name' instanceof \Illuminate\Foundation\Console\AppNameCommand,
@@ -268,6 +270,7 @@ namespace PHPSTORM_META {
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
             'image' instanceof \Intervention\Image\ImageManager,
+            'bulksms' instanceof \anlutro\BulkSms\Laravel\BulkSmsService,
             'html' instanceof \Illuminate\Html\HtmlBuilder,
             'form' instanceof \Illuminate\Html\FormBuilder,
             'command.app.name' instanceof \Illuminate\Foundation\Console\AppNameCommand,
@@ -382,6 +385,7 @@ namespace PHPSTORM_META {
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
             'image' instanceof \Intervention\Image\ImageManager,
+            'bulksms' instanceof \anlutro\BulkSms\Laravel\BulkSmsService,
             'html' instanceof \Illuminate\Html\HtmlBuilder,
             'form' instanceof \Illuminate\Html\FormBuilder,
             'command.app.name' instanceof \Illuminate\Foundation\Console\AppNameCommand,

@@ -1,5 +1,62 @@
 @extends('layouts.inside')
 
+
+@section('head-style')
+    <link rel="stylesheet" href="/assets/libs/tel-input/css/intlTelInput.css">
+@endsection
+
+@section('head-js')
+    <script src="/assets/libs/tel-input/js/intlTelInput.min.js"></script>
+@endsection
+
+@section('body-js')
+    <script>
+        $(function() {
+
+            var telInput = $("#mobile"),
+                    errorMsg = $("#error-msg"),
+                    validMsg = $("#valid-msg");
+            telInput.intlTelInput({
+                utilsScript: "/assets/libs/libphonenumber/utils.js",
+                preferredCountries: ['es', 'gb', 'ru']
+            });
+            telInput.blur(function() {
+                if ($.trim(telInput.val())) {
+                    if (telInput.intlTelInput("isValidNumber")) {
+                        validMsg.show();
+                        errorMsg.hide();
+                    } else {
+                        telInput.addClass("error");
+                        errorMsg.show();
+                        validMsg.hide();
+                    }
+                }
+            });
+            telInput.keydown(function() {
+                telInput.removeClass("error");
+                errorMsg.hide();
+                validMsg.hide();
+            });
+
+            $('#mobileForm').submit(function(e){
+                if (telInput.intlTelInput("isValidNumber")) {
+                    var number = telInput.intlTelInput("getNumber");
+                    telInput.intlTelInput("destroy");
+                    telInput.val(number);
+                    errorMsg.hide();
+                    validMsg.hide();
+                    return true;
+                } else {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+
+        });
+    </script>
+@endsection
+
 @section('content')
     <div class="page-header">
         <h1>{{ trans('profile.title') }}</h1>
@@ -46,13 +103,16 @@
                                 <a href="/profile/confirm/mobile" class="btn btn-success btn-xs">{{ trans('profile.my.proof.confirm') }}</a>
                             @endif
                         @else
-                            {!! Form::open(['url' => '/profile/confirm/mobile', 'action' => 'post', 'class' => 'form-inline']) !!}
+                            {!! Form::open(['url' => '/profile/confirm/mobile', 'action' => 'post', 'class' => 'form-inline', 'id' => 'mobileForm']) !!}
                                 <div class="form-group">
                                     {!! Form::label(trans('profile.my.proof.phone')) !!}
-                                    {!! Form::text('mobile', $user->profile->phone, ['class' => 'form-control', 'placeholder' => trans('profile.my.proof.phone')]) !!}
+                                    {!! Form::text('mobile', $user->profile->phone, ['class' => 'form-control', 'id' => 'mobile']) !!}
+                                    <span id="valid-msg" class="bg-success text-success"><i class="fa fa-check"></i> {!! trans('register.mobile.valid') !!}</span>
+                                    <span id="error-msg" class="bg-danger text-danger"><i class="fa fa-exclamation-circle"></i> {!! trans('register.mobile.invalid') !!}</span>
                                 </div>
                                 {!! Form::submit(trans('general.save'), ['class' => 'btn btn-success']) !!}
                             {!! Form::close() !!}
+                            {!! Form::errorMessage('mobile') !!}
                         @endif
                     </p>
                     <p>

@@ -149,6 +149,8 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
+        anlutro\BulkSms\Laravel\BulkSmsServiceProvider::class,
+
     ],
 
     /*
@@ -201,6 +203,7 @@ return [
         'HTML'      => Illuminate\Html\HtmlFacade::class,
         'Image'     => Intervention\Image\Facades\Image::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'BulkSms'   => anlutro\BulkSms\Laravel\BulkSms::class,
 
     ],
 
