@@ -16,6 +16,7 @@
 </head>
 <body>
     @include('includes.header')
+    @include('includes.alerts')
     @yield('pre-content')
     <div class="container">
         <div class="row">

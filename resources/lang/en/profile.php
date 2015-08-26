@@ -62,5 +62,19 @@ return [
             'title' => 'My tasks',
 
         ],
+        'confirm' => [
+            'email' => [
+                'subject' => 'Confirm your address',
+                'body' => [
+                    'title' => 'Confirm your address',
+                    'greeting' => 'Hello :username',
+                    'text' => 'Please confirm <a href=":url">:url</a> your email address',
+                ],
+                'success' => 'You confirmed your email',
+                'error' => 'Failed email confirmation',
+
+
+            ]
+        ]
     ]
 ];
