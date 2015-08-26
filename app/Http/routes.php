@@ -25,6 +25,9 @@ Route::post('profile/types', 'ProfileController@postTypes');
 Route::get('profile/fill', 'ProfileController@getFill');
 Route::post('profile/fill', 'ProfileController@postFill');
 
+Route::get('profile/confirm/facebook', 'ProfileConfirmController@facebook');
+Route::get('profile/confirm/facebook/callback', 'ProfileConfirmController@facebookCallback');
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');

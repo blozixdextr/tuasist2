@@ -13,25 +13,12 @@ use App\Models\Location;
 use App\Models\Category;
 use App\Models\Mappers\UserMapper;
 
-class ProfileController extends Controller
+class ProfileController extends UserController
 {
-    /**
-     * @var User
-     */
-    public $user;
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->user = Auth::user();
-        if (!$this->user || $this->user->role != 'user') {
-            redirect('/');
-        }
-    }
 
     public function checkProfileType()
     {
-        if (!$this->user->type || !$this->user->profile->type) {
+        if (!$this->user->type || !$this->user->profile || !$this->user->profile->type) {
             return false;
         }
         return true;

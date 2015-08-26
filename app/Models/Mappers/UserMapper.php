@@ -4,6 +4,7 @@ namespace App\Models\Mappers;
 
 use App\Models\User ;
 use App\Models\UserProfile ;
+use \Laravel\Socialite\Contracts\User as SocialiteUser;
 
 class UserMapper
 {
@@ -27,7 +28,20 @@ class UserMapper
         } else {
             $avatar = 'user.jpg';
         }
+
         return '/'.User::avatarDir.'/'.$avatar;
     }
 
+    public static function confirmFacebook(User $localUser, SocialiteUser $facebookUser) {
+        $nickname = $facebookUser->getNickname();
+        if ($nickname == '') {
+            $nickname = $facebookUser->getId();
+        }
+        $profile = $localUser->profile;
+        $profile->facebook = 'http://facebook.com/'.$nickname;
+        $profile->confirmed_facebook = true;
+        $profile->save();
+
+        return $profile;
+    }
 }

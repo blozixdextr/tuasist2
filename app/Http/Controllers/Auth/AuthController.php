@@ -44,7 +44,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->middleware('guest', ['except' => ['getLogout', 'facebookCallback']]);
     }
 
     /**
@@ -186,6 +186,13 @@ class AuthController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
         $provider = 'facebook';
+        if (Auth::user()) {
+            $localUser = Auth::user();
+            if ($localUser->profile) {
+                UserMapper::confirmFacebook(Auth::user(), $user);
+            }
+            return redirect('/profile');
+        }
         $oauthId = $user->getId();
         $localUser = User::oauth($oauthId, $provider)->first();
         if ($localUser) {

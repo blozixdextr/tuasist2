@@ -40,4 +40,27 @@ return [
             'two-days' => 'every two days'
         ]
     ],
+    'my' => [
+        'user' => [
+            'title' => 'My info',
+
+        ],
+        'proof' => [
+            'title' => 'Proofs and approvals',
+            'description' => 'You must proof your identity to take tasks',
+            'email' => 'Email address',
+            'phone' => 'Mobile phone',
+            'passport' => 'Passport scan (or any ID)',
+            'facebook' => 'Facebook account',
+            'status' => [
+                'confirmed' => 'confirmed',
+                'unconfirmed' => 'unconfirmed',
+            ],
+            'confirm' => 'confirm',
+        ],
+        'tasks' => [
+            'title' => 'My tasks',
+
+        ],
+    ]
 ];
