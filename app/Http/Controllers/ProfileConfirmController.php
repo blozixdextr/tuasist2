@@ -16,6 +16,7 @@ use Mail;
 use App\Models\UserConfirm;
 use BulkSms;
 use Log;
+use App\Models\Mappers\LogMapper;
 
 class ProfileConfirmController extends UserController
 {
@@ -105,20 +106,26 @@ class ProfileConfirmController extends UserController
         return redirect('/profile');
     }
 
-    public function passport()
+    public function passport(Request $request)
     {
+        $rules = [
+            'passport' => 'required|image|max:3500|min:50',
+        ];
+        $this->validate($request, $rules);
         $user = $this->user;
-        $token = uniqid();
         $profile = $user->profile;
-        if ($profile->confirmed_email) {
-            return redirect('/profile')->with(['success' => trans('profile.my.confirm.email.success')]);
+        $passport = $request->file('passport');
+        if ($passport) {
+            $ext = strtolower($passport->getClientOriginalExtension());
+            $passportFilename = $user->id.'_'.uniqid().'.'.$ext;
+            $passport = $passport->move(User::passportDir, $passportFilename);
+            $profile->passport = $passport->getFilename();
+            $profile->confirmed_passport = false;
+            LogMapper::log('passport', $profile->passport);
+            $profile->save();
+            Session::flash('success', trans('profile.my.confirm.passport.success'));
         }
-        $confirmation = UserConfirm::create(['user_id' => $user->id, 'type' => 'email', 'token' => $token]);
-        Mail::send('emails.confirm', ['user' => $user, 'token' => $token], function ($m) use ($user) {
-            $m->from('robot@tuasist.es', trans('emails.confirm.subject'));
-            $m->to($user->email, $user->name)->subject(trans('profile.my.confirm.email.subject'));
-        });
 
-        return view('pages.profile.confirm_mail');
+        return redirect('/profile');
     }
 }

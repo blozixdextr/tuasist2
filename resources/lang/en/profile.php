@@ -50,7 +50,10 @@ return [
             'description' => 'You must proof your identity to take tasks',
             'email' => 'Email address',
             'phone' => 'Mobile phone',
-            'passport' => 'Passport scan (or any ID)',
+            'passport' => [
+                'label' => 'Passport scan (or any ID)',
+                'waiting' => 'Passport is in review now. Please wait',
+            ],
             'facebook' => 'Facebook account',
             'status' => [
                 'confirmed' => 'confirmed',
@@ -83,6 +86,9 @@ return [
                 'success' => 'You confirmed your mobile',
                 'error' => 'Wrong mobile confirmation',
                 'fail' => 'Sms gate failed. Retry later',
+            ],
+            'passport' => [
+                'success' => 'Your passport has been sent for review',
             ]
         ]
     ]

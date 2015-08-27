@@ -116,18 +116,23 @@
                         @endif
                     </p>
                     <p>
-                        {{ trans('profile.my.proof.passport') }}
+                        {{ trans('profile.my.proof.passport.label') }}
                         @if ($user->profile->confirmed_passport)
                             <span class="text-success">{{ trans('profile.my.proof.status.confirmed') }}</span>
                         @else
-                            <span class="text-danger">{{ trans('profile.my.proof.status.unconfirmed') }}</span>
-                            {!! Form::open(['url' => '/profile/confirm/passport', 'action' => 'post', 'class' => 'form-inline', 'file' => true]) !!}
+                            @if ($user->profile->passport)
+                                <span class="text-info">{{ trans('profile.my.proof.passport.waiting') }}</span>
+                            @else
+                            <span class="text-danger">{{ trans('profile.my.proof.passport.label') }}</span>
+                            {!! Form::open(['url' => '/profile/confirm/passport', 'action' => 'post', 'class' => 'form-inline', 'files' => true]) !!}
                                 <div class="form-group">
-                                    {!! Form::label(trans('profile.my.proof.passport')) !!}
+                                    {!! Form::label(trans('profile.my.proof.passport.label')) !!}
                                     {!! Form::file('passport', ['class' => 'form-control', 'accept' => 'image/*']) !!}
                                 </div>
                                 {!! Form::submit(trans('general.save'), ['class' => 'btn btn-success']) !!}
                             {!! Form::close() !!}
+                            {!! Form::errorMessage('passport') !!}
+                            @endif
                         @endif
                     </p>
                     <p>

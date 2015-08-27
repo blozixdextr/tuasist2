@@ -37,6 +37,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     const photoDir = 'uploads/photos';
 
+    const passportDir = 'uploads/passports';
+
 
     public function profile()
     {

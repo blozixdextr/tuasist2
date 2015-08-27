@@ -20,7 +20,7 @@ class CreateLogsTable extends Migration
             $table->string('key_value')->index('key_value');
             $table->string('additional_value')->index('additional_value')->nullable();
             $table->dateTime('review_date')->index('review_date')->nullable();
-            $table->text('var');
+            $table->text('var')->nullable();
             $table->timestamps();
         });
     }
