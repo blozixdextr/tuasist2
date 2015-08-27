@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Mappers\UserMapper;
 use Redirect;
+use App\Models\Mappers\LogMapper;
 
 class UserController extends Controller
 {
@@ -38,6 +39,23 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->is_active = 1;
         $user->save();
+
+        return Redirect::back();
+    }
+
+    public function passport()
+    {
+        $logs = LogMapper::type('passport');
+
+        return view('admin.pages.user.passport', compact('logs'));
+    }
+
+    public function passportApprove($id)
+    {
+        $user = User::findOrFail($id);
+        $profile = $user->profile;
+        $profile->confirmed_passport = true;
+        $profile->save();
 
         return Redirect::back();
     }

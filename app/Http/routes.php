@@ -103,3 +103,6 @@ Route::get('/admin/location/destroy/{id}', 'Admin\LocationController@destroy');
 Route::get('/admin/user', 'Admin\UserController@index');
 Route::get('/admin/user/ban/{id}', 'Admin\UserController@ban');
 Route::get('/admin/user/unban/{id}', 'Admin\UserController@unban');
+
+Route::get('/admin/passport', 'Admin\UserController@passport');
+Route::get('/admin/passport/approve/{id}', 'Admin\UserController@passportApprove');

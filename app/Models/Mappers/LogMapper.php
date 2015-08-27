@@ -39,5 +39,12 @@ class LogMapper
         $log->save();
     }
 
+    public static function type($type, $limit = 50) {
+        if (is_string($type)) {
+            $type = [$type];
+        }
+        return Log::whereIn('type', $type)->paginate($limit);
+    }
+
 
 }
