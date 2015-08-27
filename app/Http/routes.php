@@ -105,4 +105,5 @@ Route::get('/admin/user/ban/{id}', 'Admin\UserController@ban');
 Route::get('/admin/user/unban/{id}', 'Admin\UserController@unban');
 
 Route::get('/admin/passport', 'Admin\UserController@passport');
-Route::get('/admin/passport/approve/{id}', 'Admin\UserController@passportApprove');
+Route::get('/admin/passport/approve/{id}/{log}', 'Admin\UserController@passportApprove');
+Route::get('/admin/passport/decline/{id}/{log}', 'Admin\UserController@passportDecline');

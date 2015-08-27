@@ -25,8 +25,8 @@
             <td>{{ $l->user->name }}</td>
             <td><a target="_blank" href="{{ url(\App\Models\User::passportDir.'/'.$l->key_value) }}">review passport</a></td>
             <td>
-                <a class="btn btn-success btn-xs" href="/admin/passport/approve/{{ $l->user_id }}/{{ $i->id }}">approve</a>
-                <a class="btn btn-danger btn-xs" href="/admin/passport/decline/{{ $l->user_id }}/{{ $i->id }}">decline</a>
+                <a class="btn btn-success btn-xs" href="/admin/passport/approve/{{ $l->user_id }}/{{ $l->id }}">approve</a>
+                <a class="btn btn-danger btn-xs" href="/admin/passport/decline/{{ $l->user_id }}/{{ $l->id }}">decline</a>
             </td>
         </tr>
     @empty

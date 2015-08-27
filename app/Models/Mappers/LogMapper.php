@@ -39,11 +39,17 @@ class LogMapper
         $log->save();
     }
 
-    public static function type($type, $limit = 50) {
+    public static function type($type, $onlyFresh = true, $limit = 50) {
         if (is_string($type)) {
             $type = [$type];
         }
-        return Log::whereIn('type', $type)->paginate($limit);
+        $logs = Log::whereIn('type', $type);
+        if ($onlyFresh) {
+            $logs->where('review_date', null);
+        }
+        $logs = $logs->paginate($limit);
+
+        return $logs;
     }
 
 

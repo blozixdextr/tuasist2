@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Log;
 use Input;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -50,12 +51,27 @@ class UserController extends Controller
         return view('admin.pages.user.passport', compact('logs'));
     }
 
-    public function passportApprove($id)
+    public function passportApprove($id, $log)
     {
         $user = User::findOrFail($id);
         $profile = $user->profile;
         $profile->confirmed_passport = true;
         $profile->save();
+        $log = Log::findOrFail($log);
+        LogMapper::reviewed($log);
+
+        return Redirect::back();
+    }
+
+    public function passportDecline($id, $log)
+    {
+        $user = User::findOrFail($id);
+        $profile = $user->profile;
+        $profile->confirmed_passport = false;
+        $profile->passport = null;
+        $profile->save();
+        $log = Log::findOrFail($log);
+        LogMapper::reviewed($log);
 
         return Redirect::back();
     }
